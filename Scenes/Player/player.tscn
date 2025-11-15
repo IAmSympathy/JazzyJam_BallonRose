@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjh4fgej2owjf"]
+
+[ext_resource type="Script" uid="uid://we1rdbcsa7vv" path="res://Core/State Machine/state_manager.gd" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://dqr87slk6uhor" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
+[ext_resource type="Script" uid="uid://dve3fa076rhti" path="res://Scenes/Player/States/Common/player_state_master.gd" id="2_a3d8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvfyp"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xpcdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hvfyp")
+
+[node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("active_state", "possessed_node")]
+script = ExtResource("1_uvnfx")
+active_state = NodePath("../States/PlayerStateMaster")
+possessed_node = NodePath("..")
+metadata/_custom_type_script = "uid://we1rdbcsa7vv"
+
+[node name="States" type="Node" parent="."]
+
+[node name="PlayerStateMaster" type="Node" parent="States"]
+script = ExtResource("2_a3d8c")
+metadata/_custom_type_script = "uid://dve3fa076rhti"
