@@ -55,6 +55,9 @@ metadata/_custom_type_script = "uid://b2i2k78y8legc"
 
 [node name="PlayerStateFall" type="Node" parent="States"]
 script = ExtResource("6_dd0ac")
+move_speed = null
+target_fall_gravity = null
+duration_to_terminal_velocity = null
 metadata/_custom_type_script = "uid://b2hiabe6vcmu7"
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -3,7 +3,6 @@ class_name PlayerStateMaster
 
 func enter():
 	super.enter()
-
 func exit():
 	super.exit()
 
