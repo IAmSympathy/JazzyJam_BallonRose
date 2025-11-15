@@ -35,7 +35,7 @@ texture = ExtResource("1_dpq8s")
 
 [node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("active_state", "possessed_node", "states")]
 script = ExtResource("3_qrf04")
-active_state = NodePath("States/BallStateHeld")
+active_state = NodePath("States/BallStateFree")
 possessed_node = NodePath("..")
 states = {
 "Free": NodePath("States/BallStateFree"),
