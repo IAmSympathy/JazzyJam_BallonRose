@@ -15,10 +15,12 @@ func handle_state_transition(next_state_name: String):
 	active_state.enter()
 
 # À appeller dans le possessed pawn lorsqu'un input est détecté
-func handle_state_input(input : String, value : bool):
-	active_state.handle_input(input, value)	
+func handle_state_input(input : String, value : int, delta: float):
+	active_state.handle_input(input, value, delta)
+	
 
 # À appeller dans le _process du possessed pawn
-func call_active_state_update():
-	active_state.update()
+func call_active_state_update(delta: float):
+	active_state.update(delta)
+	
 	
