@@ -5,17 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42a54f70-04f7-40ce-9d6d-451dc2085ff9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ressources/Ball/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Ressources/Ball/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ressources/Environnment/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Ressources/Environnment/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ressources/Player/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Ressources/Player/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Ball/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/VFXs/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/VFXs/Ball pit.jpg.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/State Machine/e_inputs.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/Core/State Machine/e_inputs.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/State Machine/e_player_states.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/Core/State Machine/e_player_states.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/State Machine/state.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/Core/State Machine/state.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/State Machine/state_manager.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/Core/State Machine/state_manager.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/game_instance.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Core/game_instance.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/gamemode.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Core/gamemode.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/level_manager.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Core/level_manager.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ressources/Environnment/Ball pit.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ressources/Environnment/Ball pit.jpg.import" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/ball_test.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/ball_test.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Player/player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/player.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="255" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,18 +42,26 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Executable.Player.executor": "Debug",
+    "GdScript Start and Debug.Player GDScript.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Executable.Player">
+  <component name="RunManager" selected="GdScript Start and Debug.Player GDScript">
     <configuration name="Debug GDScript (Running session)" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory">
       <option name="json" value="{&#10;  // Launch: &quot;Launch a new instance of the game&quot;,&#10;  // Attach: &quot;Attach to an already running game, which was started from the Godot Editor&quot;&#10;  &quot;request&quot; : &quot;Attach&quot;,&#10;  &quot;debugServer&quot; : 6006, // port should match the Debug Adapter port in the Godot Editor project settings.&#10;  &quot;scene&quot; : &quot;main&quot;, // main, current, res://path/to/file.tscn&#10;  &#10;  // &quot;playArgs&quot; : [ &quot;--editor&quot; ], // debugging a tool script&#10;  // &quot;playArgs&quot;: [&quot;--debug-collisions&quot;,&quot;--debug-navigation&quot;], // different options&#10;  &#10;  // one click deploy and debug via Godot Editor:&#10;  // &quot;platform&quot;: &quot;Android&quot;, // including Android, iOS, Web and W4 consoles&#10;  // &quot;device&quot;: &quot;0&quot;, // index of the device of a &quot;platform&quot; type&#10;}" />
       <method v="2" />
@@ -52,9 +71,9 @@
       <method v="2" />
     </configuration>
     <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Godot_v4.5.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../Program Files (x86)/Steam/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Mari0no1\Documents\GitHub\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -68,9 +87,9 @@
       </method>
     </configuration>
     <configuration name="Player" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Godot_v4.5.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../Program Files (x86)/Steam/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot;" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Mari0no1\Documents\GitHub\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -84,9 +103,9 @@
       </method>
     </configuration>
     <configuration name="Editor" type="RunNativeExe" factoryName="Native Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Godot_v4.5.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../Program Files (x86)/Steam/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Mari0no1\Documents\GitHub\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -105,6 +124,7 @@
       <workItem from="1763172960922" duration="300000" />
       <workItem from="1763173277250" duration="3089000" />
       <workItem from="1763176396269" duration="884000" />
+      <workItem from="1763235016877" duration="1696000" />
     </task>
     <servers />
   </component>
@@ -131,6 +151,9 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="GDSCRIPT_EXCEPTION_BP_TYPE" />
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="github-copilot-workspace">

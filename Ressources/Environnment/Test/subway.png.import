@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctiq3go6kp51g"
-path="res://.godot/imported/Ball pit.jpg-a5787fb3154f896fbd176af6c75fbb96.ctex"
+uid="uid://da5ppbfusfp33"
+path="res://.godot/imported/subway.png-b56120b26aca7c3dbcfe796cce08acc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ressources/Environnment/Ball pit.jpg"
-dest_files=["res://.godot/imported/Ball pit.jpg-a5787fb3154f896fbd176af6c75fbb96.ctex"]
+source_file="res://Ressources/Environnment/Test/subway.png"
+dest_files=["res://.godot/imported/subway.png-b56120b26aca7c3dbcfe796cce08acc1.ctex"]
 
 [params]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b42hhxljqm1nu"]
+[gd_scene load_steps=4 format=3 uid="uid://b42hhxljqm1nu"]
 
 [ext_resource type="PackedScene" uid="uid://dk55py8pyi8qk" path="res://Core/gamemode.tscn" id="1_8tgpj"]
+[ext_resource type="PackedScene" uid="uid://y0hcsfqt30h" path="res://Core/level_manager.tscn" id="2_wh562"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pet42"]
 size = Vector2(625, 185)
@@ -14,3 +15,5 @@ size = Vector2(625, 185)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2, 142)
 shape = SubResource("RectangleShape2D_pet42")
+
+[node name="LevelManager" parent="." instance=ExtResource("2_wh562")]
