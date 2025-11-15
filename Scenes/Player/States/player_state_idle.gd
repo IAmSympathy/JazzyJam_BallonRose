@@ -4,6 +4,9 @@ class_name PlayerStateIdle
 func enter():
 	super.enter()
 	print("Je suis en Idle !!!")
+	#Si on est déjà en train d'apuyer dans un direction, on va a run
+	if Input.is_action_pressed("Left") or Input.is_action_pressed("Right"):
+		state_manager.handle_state_transition(E_PlayerStates.run)
 
 func exit():
 	super.exit()
