@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfr3kf48m5u21"]
+
+[ext_resource type="Script" uid="uid://be4yo00s1qvhx" path="res://Scenes/Ball/ball.gd" id="1_1rrwo"]
+[ext_resource type="Texture2D" uid="uid://cqi0p5r3in40" path="res://Scenes/Ball/Ball pit.jpg" id="1_dpq8s"]
+[ext_resource type="Script" uid="uid://we1rdbcsa7vv" path="res://Core/State Machine/state_manager.gd" id="3_qrf04"]
+[ext_resource type="Script" uid="uid://x37q3ijqfg2y" path="res://Scenes/Ball/States/ball_state_free.gd" id="4_uw8co"]
+[ext_resource type="Script" uid="uid://cbxxfmo652dhm" path="res://Scenes/Ball/States/ball_state_held.gd" id="5_uw8co"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ni1na"]
+friction = 0.0
+bounce = 0.67
+
+[sub_resource type="SphereMesh" id="SphereMesh_ni1na"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ni1na"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_ni1na")
+gravity_scale = 8.0
+script = ExtResource("1_1rrwo")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("SphereMesh_ni1na")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ni1na")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_dpq8s")
+
+[node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("active_state", "possessed_node", "states")]
+script = ExtResource("3_qrf04")
+active_state = NodePath("States/BallStateHeld")
+possessed_node = NodePath("..")
+states = {
+"Free": NodePath("States/BallStateFree"),
+"Held": NodePath("States/BallStateHeld")
+}
+metadata/_custom_type_script = "uid://we1rdbcsa7vv"
+
+[node name="States" type="Node" parent="StateManager"]
+
+[node name="BallStateFree" type="Node" parent="StateManager/States"]
+script = ExtResource("4_uw8co")
+metadata/_custom_type_script = "uid://cpj5heb02hna5"
+
+[node name="BallStateHeld" type="Node" parent="StateManager/States"]
+script = ExtResource("5_uw8co")
+metadata/_custom_type_script = "uid://crdyyg885xty8"
