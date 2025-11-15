@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42a54f70-04f7-40ce-9d6d-451dc2085ff9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/icon.svg.import" beforeDir="false" afterPath="$PROJECT_DIR$/icon.svg.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +46,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.4.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -60,7 +62,7 @@
       </method>
     </configuration>
     <configuration name="Player" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.4.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot;" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -76,7 +78,7 @@
       </method>
     </configuration>
     <configuration name="Editor" type="RunNativeExe" factoryName="Native Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.4.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -95,7 +97,8 @@
       <updated>1763172343432</updated>
       <workItem from="1763172346447" duration="582000" />
       <workItem from="1763172960922" duration="300000" />
-      <workItem from="1763173277250" duration="2399000" />
+      <workItem from="1763173277250" duration="3089000" />
+      <workItem from="1763176396269" duration="884000" />
     </task>
     <servers />
   </component>
