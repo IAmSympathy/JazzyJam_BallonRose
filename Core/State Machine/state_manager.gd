@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # À appeller pour changer de state
 func handle_state_transition(next_state_name: String):
-	active_state.exit()
+	await active_state.exit()
 	active_state = states[next_state_name]
 	active_state.enter()
 

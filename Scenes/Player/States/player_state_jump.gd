@@ -15,7 +15,7 @@ func exit():
 
 func handle_input(input : String, value : int, delta: float):
 	super.handle_input(input,value,delta)
-	print(value)
+
 	if input == E_Inputs.move_x and value == 0:
 		var tween: Tween = create_tween()
 		tween.tween_method(Callable(state_manager.possessed_node, "set_velocity_x"),state_manager.possessed_node.velocity.x,0,duration_decelerate)
@@ -30,7 +30,7 @@ func update(delta: float):
 	state_manager.possessed_node.velocity.x += Input.get_axis("Left", "Right") * move_speed
 	state_manager.possessed_node.velocity.x = clamp(state_manager.possessed_node.velocity.x,-state_manager.possessed_node.base_speed,state_manager.possessed_node.base_speed)
 	state_manager.possessed_node.move_and_slide()
-
+	
 	
 
 	

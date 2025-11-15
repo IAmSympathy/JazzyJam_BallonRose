@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://whdfqfbehvc5"]
 
-[ext_resource type="Script" uid="uid://d3q7krnumntwu" path="res://Core/level_master.gd" id="1_l2i54"]
+[ext_resource type="Script" uid="uid://d3q7krnumntwu" path="res://Levels/Common/level_master.gd" id="1_l2i54"]
 [ext_resource type="Texture2D" uid="uid://w04d1s6erum1" path="res://Ressources/Environnment/Test/walls.png" id="2_w25xf"]
 [ext_resource type="Texture2D" uid="uid://da5ppbfusfp33" path="res://Ressources/Environnment/Test/subway.png" id="3_lv1nh"]
 
@@ -1405,7 +1405,7 @@ colors = PackedColorArray(0.58571196, 0.94511014, 1.1551381e-06, 1, 0.5154291, 0
 gradient = SubResource("Gradient_l2i54")
 
 [sub_resource type="Gradient" id="Gradient_w25xf"]
-colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lv1nh"]
 gradient = SubResource("Gradient_w25xf")
@@ -1434,6 +1434,8 @@ texture = SubResource("GradientTexture2D_w25xf")
 
 [node name="End" type="Area2D" parent="."]
 position = Vector2(100, 0)
+collision_layer = 0
+collision_mask = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="End"]
 texture = SubResource("GradientTexture2D_lv1nh")

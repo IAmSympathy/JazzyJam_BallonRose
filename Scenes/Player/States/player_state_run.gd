@@ -3,7 +3,7 @@ class_name PlayerStateRun
 
 func enter():
 	super.enter()
-	print("Je suis en run !!!")
+	
 
 func exit():
 	super.exit()
