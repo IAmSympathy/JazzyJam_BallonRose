@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjh4fgej2owjf"]
+[gd_scene load_steps=17 format=3 uid="uid://bjh4fgej2owjf"]
 
-[ext_resource type="Script" uid="uid://we1rdbcsa7vv" path="res://Core/State Machine/state_manager.gd" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Core/State Machine/state_manager.gd" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://dqr87slk6uhor" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
 [ext_resource type="Script" uid="uid://b13qioohkndro" path="res://Scenes/Player/States/player_state_idle.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://1hyrb16w64qr" path="res://Scenes/Player/States/player_state_run.gd" id="4_mtuoh"]
@@ -20,11 +20,14 @@ size = Vector2(69, 177)
 [sub_resource type="CircleShape2D" id="CircleShape2D_06tpx"]
 radius = 141.05673
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06tpx"]
+size = Vector2(82, 182)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 1)
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
-collision_mask = 29
+collision_mask = 61
 script = ExtResource("1_xpcdj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -36,7 +39,6 @@ script = ExtResource("1_uvnfx")
 active_state = NodePath("../States/PlayerStateIdle")
 possessed_node = NodePath("..")
 states = [NodePath("../States/PlayerStateIdle"), NodePath("../States/PlayerStateRun"), NodePath("../States/PlayerStateJump"), NodePath("../States/PlayerStateFall")]
-metadata/_custom_type_script = "uid://we1rdbcsa7vv"
 
 [node name="States" type="Node" parent="."]
 
@@ -62,8 +64,6 @@ metadata/_custom_type_script = "uid://b2i2k78y8legc"
 script = ExtResource("6_dd0ac")
 state_manager = NodePath("../../StateManager")
 state_name = "Fall"
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="BallHolder" type="Marker2D" parent="."]
 position = Vector2(82, -120)
@@ -103,11 +103,22 @@ position = Vector2(24.000008, -113.000015)
 rotation = 2.1880934
 texture = ExtResource("11_ks1b7")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PickupArea" type="Area2D" parent="."]
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2(17, 10)
 scale = Vector2(1.0785509, 0.7676709)
 shape = SubResource("CircleShape2D_06tpx")
 debug_color = Color(0.97092205, 0, 0.454674, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(19, 7)
+shape = SubResource("RectangleShape2D_06tpx")
+debug_color = Color(0.6368638, 0.52682966, 1.92523e-07, 0.41960785)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

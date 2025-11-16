@@ -3,9 +3,10 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var base_speed: float = 200.0
 
+signal on_death
 
 func _ready() -> void:
-	$Area2D.connect("body_entered", _on_area_2d_body_entered)
+	$PickupArea.connect("body_entered", _on_area_2d_body_entered)
 
 
 
@@ -21,9 +22,10 @@ func _physics_process(delta: float) -> void:
 		$StateManager.handle_state_input(E_Inputs.jump, 1, delta)
 	if Input.is_action_just_released("Jump"):
 		$StateManager.handle_state_input(E_Inputs.jump, 0, delta)
-	
-	if Input.is_action_just_pressed("ThrowBall"):
-		var ball = $BallHolder.get_child(0) as RigidBody2D
+		
+	var ball = $BallHolder.get_child(0) as RigidBody2D
+	if Input.is_action_just_pressed("ThrowBall") and ball != null: 
+		
 		throwBall(ball)
 
 #Sert à être dans dans des tween de states par exemple
@@ -63,13 +65,17 @@ func attachBall(ball: RigidBody2D) -> void:
 	ball.get_state_manager().handle_state_transition("Held")
 
 func enablePickUpBall() -> void:
-	$Area2D.monitoring = true
+	$PickupArea.monitoring = true
 	print("Pick Up Enabled")
 
 	
 func disablePickUpBall() -> void:
-	$Area2D.monitoring = false
+	$PickupArea.monitoring = false
 	print("Pick Up Disabled")
 
 
 	
+
+#Losrque le player touche un pic
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	on_death.emit()
