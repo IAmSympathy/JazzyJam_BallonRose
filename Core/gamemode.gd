@@ -18,9 +18,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		if bHasLoss:
 			$LevelManager.restart_level()
 			bHasLoss = false
+			$AnimationPlayer.play("transition_in")
 		else:
 			$LevelManager.next_level()
-		$AnimationPlayer.play("transition_in")
+			if($LevelManager.curren_level_index != 0):
+				$AnimationPlayer.play("transition_in")
+		
 
 func _on_level_manager_game_complete() -> void:
 	$AnimationPlayer.play("transition_out")
