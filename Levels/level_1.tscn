@@ -20,7 +20,7 @@ position = Vector2(-187, -98)
 position = Vector2(220, 205)
 
 [node name="Portal" parent="." index="7" node_paths=PackedStringArray("other_portal") instance=ExtResource("3_3mhv4")]
-position = Vector2(5, 146)
+position = Vector2(-9, 135)
 other_portal = NodePath("../Portal2")
 
 [node name="Portal2" parent="." index="8" node_paths=PackedStringArray("other_portal") instance=ExtResource("3_3mhv4")]

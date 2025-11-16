@@ -88,9 +88,10 @@ func attachBall(ball: RigidBody2D) -> void:
 	var balle = ball as Ball
 
 	var tween := create_tween()
+	print("scale avant:", ball.scale)
 	tween.tween_property(ball,"global_position", $BallHolder.global_position,0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT) #Un tween pour faire une transition smooth vers le ballHolder du joueur
 	await tween.finished
-
+	print("scale après:", ball.scale)
 	print("Zone penetrée")
 	ball.ballfreeze()
 	#togglePickUpBall(false)

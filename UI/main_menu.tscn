@@ -23,17 +23,17 @@ scale = Vector2(0.2552924, 0.2552924)
 texture = ExtResource("2_f40uw")
 
 [node name="Logo" type="TextureRect" parent="."]
-offset_left = -173.00002
+offset_left = -244.00002
 offset_top = 6.0
-offset_right = 1396.0
+offset_right = 1325.0
 offset_bottom = 774.0
 scale = Vector2(0.39233875, 0.43233874)
 texture = ExtResource("1_tk8dj")
 
 [node name="Title" type="Label" parent="."]
-offset_left = 257.0
+offset_left = 186.0
 offset_top = 69.0
-offset_right = 773.0
+offset_right = 716.0
 offset_bottom = 129.0
 theme = ExtResource("2_d8nwk")
 theme_override_font_sizes/font_size = 54
