@@ -11,13 +11,13 @@ size = Vector2(10.1, 4.82)
 [node name="BallTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_y7bcq")]
-position = Vector2(10, 254.99998)
+position = Vector2(10.999999, 256)
 scale = Vector2(0.5016248, 0.51811385)
 minThrowStrength = 20.0
 maxThrowStrength = 200.0
 
 [node name="RigidBody2D" parent="." instance=ExtResource("1_qa2mr")]
-position = Vector2(223, 8.000001)
+position = Vector2(222.99998, -1.9999998)
 rotation = 1.4422152
 mass = 0.235
 gravity_scale = 0.5

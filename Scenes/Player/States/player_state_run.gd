@@ -1,6 +1,8 @@
 extends PlayerStateMaster
 class_name PlayerStateRun
 
+@onready var animation: AnimationPlayer = $'../../AnimationPlayer'
+
 func enter():
 	super.enter()
 	
@@ -24,6 +26,7 @@ func update(delta: float):
 	super.update(delta)
 	
 	state_manager.possessed_node.velocity.x = Input.get_axis("Left", "Right") * state_manager.possessed_node.base_speed
+	animation.play("Run")
 	state_manager.possessed_node.move_and_slide()
 
 	

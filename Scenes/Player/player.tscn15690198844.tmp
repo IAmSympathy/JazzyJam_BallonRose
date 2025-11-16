@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://bjh4fgej2owjf"]
+
+[ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Core/State Machine/state_manager.gd" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://dqr87slk6uhor" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
+[ext_resource type="Script" uid="uid://b13qioohkndro" path="res://Scenes/Player/States/player_state_idle.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://1hyrb16w64qr" path="res://Scenes/Player/States/player_state_run.gd" id="4_mtuoh"]
+[ext_resource type="Script" uid="uid://b2i2k78y8legc" path="res://Scenes/Player/States/player_state_jump.gd" id="5_htcer"]
+[ext_resource type="Script" uid="uid://b2hiabe6vcmu7" path="res://Scenes/Player/States/player_state_fall.gd" id="6_dd0ac"]
+[ext_resource type="Texture2D" uid="uid://b432nr2mrqxlx" path="res://Ressources/Player/Sprites/Animation/Panda bras G.png" id="7_06tpx"]
+[ext_resource type="Texture2D" uid="uid://7uinolv6xm1v" path="res://Ressources/Player/Sprites/Animation/Panda jambe D.png" id="8_7g0yx"]
+[ext_resource type="Texture2D" uid="uid://mknkjbxtq1yx" path="res://Ressources/Player/Sprites/Animation/tronc1.png" id="10_06tpx"]
+[ext_resource type="Texture2D" uid="uid://cecrqkstdfku3" path="res://Ressources/Player/Sprites/Animation/Te╠éte.png" id="10_r5xpd"]
+[ext_resource type="Texture2D" uid="uid://cbvmgcftihfdu" path="res://Ressources/Player/Sprites/Animation/Panda bras D.png" id="11_ks1b7"]
+[ext_resource type="Texture2D" uid="uid://dwn8e06vx1ie" path="res://Ressources/Player/Sprites/Animation/Panda jambe G.png" id="12_hnuln"]
+[ext_resource type="Texture2D" uid="uid://cqe5s0dalv2kl" path="res://Ressources/Player/Sprites/Animation/Panda queue.png" id="13_aqm4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvfyp"]
+size = Vector2(69, 177)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06tpx"]
+radius = 141.05673
+
+[sub_resource type="Curve2D" id="Curve2D_06tpx"]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(0, 1)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 29
+script = ExtResource("1_xpcdj")
+minRayLength = null
+maxRayLength = null
+minThrowStrength = null
+maxThrowStrength = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, 5.5)
+shape = SubResource("RectangleShape2D_hvfyp")
+
+[node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("active_state", "possessed_node", "states")]
+script = ExtResource("1_uvnfx")
+active_state = NodePath("../States/PlayerStateIdle")
+possessed_node = NodePath("..")
+states = [NodePath("../States/PlayerStateIdle"), NodePath("../States/PlayerStateRun"), NodePath("../States/PlayerStateJump"), NodePath("../States/PlayerStateFall")]
+metadata/_custom_type_script = "uid://we1rdbcsa7vv"
+
+[node name="States" type="Node" parent="."]
+
+[node name="PlayerStateIdle" type="Node" parent="States" node_paths=PackedStringArray("state_manager")]
+script = ExtResource("3_mtuoh")
+state_manager = NodePath("../../StateManager")
+state_name = "Idle"
+metadata/_custom_type_script = "uid://b13qioohkndro"
+
+[node name="PlayerStateRun" type="Node" parent="States" node_paths=PackedStringArray("state_manager")]
+script = ExtResource("4_mtuoh")
+state_manager = NodePath("../../StateManager")
+state_name = "Run"
+metadata/_custom_type_script = "uid://1hyrb16w64qr"
+
+[node name="PlayerStateJump" type="Node" parent="States" node_paths=PackedStringArray("state_manager")]
+script = ExtResource("5_htcer")
+state_manager = NodePath("../../StateManager")
+state_name = "Jump"
+metadata/_custom_type_script = "uid://b2i2k78y8legc"
+
+[node name="PlayerStateFall" type="Node" parent="States" node_paths=PackedStringArray("state_manager")]
+script = ExtResource("6_dd0ac")
+state_manager = NodePath("../../StateManager")
+state_name = "Fall"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BallHolder" type="Marker2D" parent="."]
+position = Vector2(82, -120)
+
+[node name="Sprites" type="Node2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="brasGauche" type="Sprite2D" parent="Sprites"]
+position = Vector2(160.99998, -117)
+rotation = 2.0149941
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("7_06tpx")
+
+[node name="jambeGauche" type="Sprite2D" parent="Sprites"]
+position = Vector2(98, -11)
+texture = ExtResource("12_hnuln")
+
+[node name="Queu" type="Sprite2D" parent="Sprites"]
+position = Vector2(-11, -26)
+texture = ExtResource("13_aqm4k")
+
+[node name="troncIdle" type="Sprite2D" parent="Sprites"]
+position = Vector2(359, -10)
+texture = ExtResource("10_06tpx")
+
+[node name="Tête" type="Sprite2D" parent="Sprites"]
+position = Vector2(84.99999, -15)
+rotation = -0.18337233
+texture = ExtResource("10_r5xpd")
+
+[node name="jambeDroite" type="Sprite2D" parent="Sprites"]
+position = Vector2(-22, -6)
+texture = ExtResource("8_7g0yx")
+
+[node name="brasDroit" type="Sprite2D" parent="Sprites"]
+position = Vector2(24.000008, -113.000015)
+rotation = 2.1880934
+texture = ExtResource("11_ks1b7")
+
+[node name="PickupArea" type="Area2D" parent="."]
+scale = Vector2(0.94952863, 0.55463946)
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(17, 10)
+scale = Vector2(1.0785509, 0.7676709)
+shape = SubResource("CircleShape2D_06tpx")
+debug_color = Color(0.97092205, 0, 0.454674, 0.41960785)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(134, -100)
+curve = SubResource("Curve2D_06tpx")
