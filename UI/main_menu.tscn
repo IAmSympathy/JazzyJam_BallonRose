@@ -37,7 +37,7 @@ offset_right = 773.0
 offset_bottom = 129.0
 theme = ExtResource("2_d8nwk")
 theme_override_font_sizes/font_size = 54
-text = "Jeu de renard"
+text = "What does the fox?"
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 4
@@ -49,7 +49,7 @@ offset_right = 472.0
 offset_bottom = 9.0
 grow_vertical = 2
 theme = ExtResource("2_d8nwk")
-text = "Jouer
+text = "Play
 "
 
 [node name="BG" type="TextureRect" parent="."]
@@ -115,10 +115,10 @@ offset_bottom = 157.0
 grow_horizontal = 0
 theme = ExtResource("2_d8nwk")
 theme_override_font_sizes/font_size = 24
-text = "Samy  Larochelle - Programmeur
-Louis Allard - Programmeur
-Joe - Bloe
-Bloe - Joeb
+text = "Samy  Larochelle - Programmer
+Louis Allard - Programmer
+Benedict Angers - Music
+Arzhel Morel - SFX
 "
 
 [node name="MusicAudioPlayer" type="AudioStreamPlayer2D" parent="."]
