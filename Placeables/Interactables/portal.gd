@@ -32,7 +32,7 @@ func transform_velocity_between_portals(
 	
 #Aide par ChatGPT pour la transformation de vélocité après téléportation
 func _on_portal_entered(body: Node2D) -> void:
-	print("Entrée")
+	$EnterSFX.play()
 	other_portal.can_teleport = false
 	other_portal.get_node("Area2D").connect("body_exited", _on_other_portal_exited)
 	if(can_teleport):

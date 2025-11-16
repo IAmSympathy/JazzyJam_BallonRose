@@ -10,6 +10,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_button_pressed() -> void:
+	$ClickSFX.play()
+
+func _on_button_mouse_entered() -> void:
+	$HoverSFX.play()
+
+
+func _on_click_sfx_finished() -> void:
 	get_tree().quit()

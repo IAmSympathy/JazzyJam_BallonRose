@@ -17,11 +17,10 @@ func _on_button_pressed() -> void:
 		gamemode.get_node("AnimationPlayer").play("transition_out")
 
 
-
-
 func _on_click_sfx_finished():
 		gamemode.get_node("AnimationPlayer").play("transition_in")
 		gamemode.get_node("LevelManager").get_node("AudioStreamPlayer2D").play()
 		queue_free()
 
-	
+func _on_button_mouse_entered() -> void:
+	$HoverSFX.play()

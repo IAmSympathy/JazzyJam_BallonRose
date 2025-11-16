@@ -20,7 +20,11 @@ func ballfreeze():
 	angular_velocity = 0
 	freeze = true
 
-
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	on_death.emit()
+	$PopSFX.play()
+
+
+func _on_pop_sfx_finished() -> void:
+	print("POP")
 	queue_free()

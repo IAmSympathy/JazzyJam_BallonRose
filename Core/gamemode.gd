@@ -26,6 +26,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 
 func _on_level_manager_game_complete() -> void:
+	$WinSFX.play()
 	$AnimationPlayer.play("transition_out")
 	var end_screen_scene: PackedScene = preload("res://UI/end_screen.tscn")
 	var end_screen: Node = end_screen_scene.instantiate()
@@ -34,5 +35,6 @@ func _on_level_manager_game_complete() -> void:
 
 func _on_level_manager_on_lose() -> void:
 	bHasLoss = true
+	$LoseSFX.play()
 	$AnimationPlayer.play("transition_out")
 	

@@ -1,14 +1,23 @@
 extends PlayerStateMaster
 class_name PlayerStateJump
 
+var JumpSFX := AudioStreamPlayer2D.new()
+
 @onready var animation: AnimationPlayer = $'../../AnimationPlayer'
 
 @export var jump_velocity: float = 350.0
 @export var move_speed : float = 20
 @export var duration_decelerate: float = 0.2
 
+func _ready() -> void:
+	add_child(JumpSFX)
+	JumpSFX.stream = preload("res://Ressources/Sons/Saut.wav")
+	JumpSFX.volume_db = -15
+
+
 func enter():
 	super.enter()
+	JumpSFX.play()
 	animation.play("jump")
 	state_manager.possessed_node.velocity.y = -jump_velocity
 	state_manager.possessed_node.move_and_slide()
