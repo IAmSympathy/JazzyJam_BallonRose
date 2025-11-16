@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b42hhxljqm1nu"]
-
-[ext_resource type="PackedScene" uid="uid://dk55py8pyi8qk" path="res://Ressources/Core/gamemode.tscn" id="1_8tgpj"]
-
-[node name="GameInstance" type="Node"]
-
-[node name="Gamemode" parent="." instance=ExtResource("1_8tgpj")]

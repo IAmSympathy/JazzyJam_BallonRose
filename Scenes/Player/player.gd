@@ -17,6 +17,7 @@ var chargeStrength: float = 0.0
 func _ready() -> void:
 	$PickupArea.connect("body_entered", _on_area_2d_body_entered)
 	fleche.visible = false
+	$Hitbox.connect("body_entered", _on_hitbox_body_entered)
 
 
 

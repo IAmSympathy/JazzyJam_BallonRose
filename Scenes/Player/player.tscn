@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://bjh4fgej2owjf"]
 
-[ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Ressources/Core/State Machine/state_manager.gd" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Core/State Machine/state_manager.gd" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://dqr87slk6uhor" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
 [ext_resource type="Script" uid="uid://b13qioohkndro" path="res://Scenes/Player/States/player_state_idle.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://1hyrb16w64qr" path="res://Scenes/Player/States/player_state_run.gd" id="4_mtuoh"]
@@ -1106,11 +1106,9 @@ speed_scale = 2.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 32
+collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(19, -7.2559853)
 scale = Vector2(1.0105674, 1.1568007)
 shape = SubResource("RectangleShape2D_7g0yx")
-
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
