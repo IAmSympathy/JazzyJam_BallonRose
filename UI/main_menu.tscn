@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ke0n4uqj7qxa"]
+[gd_scene load_steps=9 format=3 uid="uid://ke0n4uqj7qxa"]
 
 [ext_resource type="Script" uid="uid://fmqpti2smmjb" path="res://UI/main_menu.gd" id="1_4cwpn"]
 [ext_resource type="Texture2D" uid="uid://cecrqkstdfku3" path="res://Ressources/Player/Sprites/Animation/Te╠éte.png" id="1_tk8dj"]
 [ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/text_theme.tres" id="2_d8nwk"]
 [ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="2_f40uw"]
 [ext_resource type="Texture2D" uid="uid://ci1ij516f2wle" path="res://Ressources/UI/gamejam.jpg" id="3_d8nwk"]
+[ext_resource type="AudioStream" uid="uid://bterset7mhpfs" path="res://Ressources/Musique/Title Screen.wav" id="6_8ctay"]
 
 [sub_resource type="Gradient" id="Gradient_4cwpn"]
 colors = PackedColorArray(0, 0, 0, 0.39215687, 0, 0, 0, 0.39215687)
@@ -21,7 +22,6 @@ scale = Vector2(0.2552924, 0.2552924)
 texture = ExtResource("2_f40uw")
 
 [node name="Logo" type="TextureRect" parent="."]
-anchors_preset = -1
 offset_left = -173.00002
 offset_top = 6.0
 offset_right = 1396.0
@@ -119,5 +119,9 @@ Louis Allard - Programmeur
 Joe - Bloe
 Bloe - Joeb
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8ctay")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
