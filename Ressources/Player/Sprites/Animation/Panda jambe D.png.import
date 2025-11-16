@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmri4sawbhvml"
-path="res://.godot/imported/Ball pit.jpg-71aecbf5c6389c6d94955e676cc1760a.ctex"
+uid="uid://7uinolv6xm1v"
+path="res://.godot/imported/Panda jambe D.png-6620eb70ed0b1308785a4ae2dc753437.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ressources/Player/Ball pit.jpg"
-dest_files=["res://.godot/imported/Ball pit.jpg-71aecbf5c6389c6d94955e676cc1760a.ctex"]
+source_file="res://Ressources/Player/Sprites/Animation/Panda jambe D.png"
+dest_files=["res://.godot/imported/Panda jambe D.png-6620eb70ed0b1308785a4ae2dc753437.ctex"]
 
 [params]
 

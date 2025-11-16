@@ -11,14 +11,7 @@ size = Vector2(10.1, 4.82)
 [node name="BallTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_y7bcq")]
-position = Vector2(10.999999, 256)
-scale = Vector2(0.5016248, 0.51811385)
-
-[node name="RigidBody2D" parent="." instance=ExtResource("1_qa2mr")]
-position = Vector2(222.99998, -1.9999998)
-rotation = 1.4422152
-mass = 0.235
-gravity_scale = 0.5
+position = Vector2(189, 161)
 
 [node name="walls" type="Node" parent="."]
 
@@ -28,7 +21,7 @@ rotation = 0.02181673
 physics_material_override = SubResource("PhysicsMaterial_qa2mr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
-position = Vector2(-1.9776828, 1.0434518)
+position = Vector2(5, -1)
 scale = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_qa2mr")
 
@@ -42,22 +35,17 @@ position = Vector2(5, -1)
 scale = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_qa2mr")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
-position = Vector2(745, 341)
-rotation = 1.5798204
+[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
+position = Vector2(743.99994, 340)
+rotation = 1.6238097
 physics_material_override = SubResource("PhysicsMaterial_qa2mr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2"]
 position = Vector2(5, -1)
 scale = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_qa2mr")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="walls"]
-position = Vector2(-485, 336)
-rotation = 1.5798204
-physics_material_override = SubResource("PhysicsMaterial_qa2mr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D5"]
-position = Vector2(5, -1)
-scale = Vector2(50, 50)
-shape = SubResource("RectangleShape2D_qa2mr")
+[node name="RigidBody2D" parent="." instance=ExtResource("1_qa2mr")]
+position = Vector2(485, 137)
+mass = 0.235
+gravity_scale = 0.5

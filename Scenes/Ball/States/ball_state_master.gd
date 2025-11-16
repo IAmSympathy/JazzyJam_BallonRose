@@ -1,6 +1,7 @@
 extends State
 class_name BallStateMaster
-@onready var ball = owner as RigidBody2D
+
+
 
 #Est appellé lorsqu'on entre dans le state
 func enter():

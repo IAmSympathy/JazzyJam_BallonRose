@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="42a54f70-04f7-40ce-9d6d-451dc2085ff9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ressources/Ball/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Ressources/Ball/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ressources/Environnment/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Ressources/Environnment/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ressources/Player/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Ressources/Player/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Ball/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/Ball pit.jpg.import" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/VFXs/Ball pit.jpg.import" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/VFXs/Ball pit.jpg.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_free.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_free.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_held.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_held.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_held.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_held.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_master.gd.uid" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_master.gd.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/player.tscn" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+>>>>>>> cc12519ad102c4dd1d1395c899ad5c59dd9d06ca
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Executable.Player.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Balle&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Executable.Player.executor": "Debug",
@@ -36,12 +55,13 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "Balle",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+>>>>>>> cc12519ad102c4dd1d1395c899ad5c59dd9d06ca
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Debug GDScript (Running session)" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory">
       <option name="json" value="{&#10;  // Launch: &quot;Launch a new instance of the game&quot;,&#10;  // Attach: &quot;Attach to an already running game, which was started from the Godot Editor&quot;&#10;  &quot;request&quot; : &quot;Attach&quot;,&#10;  &quot;debugServer&quot; : 6006, // port should match the Debug Adapter port in the Godot Editor project settings.&#10;  &quot;scene&quot; : &quot;main&quot;, // main, current, res://path/to/file.tscn&#10;  &#10;  // &quot;playArgs&quot; : [ &quot;--editor&quot; ], // debugging a tool script&#10;  // &quot;playArgs&quot;: [&quot;--debug-collisions&quot;,&quot;--debug-navigation&quot;], // different options&#10;  &#10;  // one click deploy and debug via Godot Editor:&#10;  // &quot;platform&quot;: &quot;Android&quot;, // including Android, iOS, Web and W4 consoles&#10;  // &quot;device&quot;: &quot;0&quot;, // index of the device of a &quot;platform&quot; type&#10;}" />
@@ -52,7 +72,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Godot_v4.5.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -68,7 +88,7 @@
       </method>
     </configuration>
     <configuration name="Player" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Godot_v4.5.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot;" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -84,7 +104,7 @@
       </method>
     </configuration>
     <configuration name="Editor" type="RunNativeExe" factoryName="Native Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Godot_v4.5.1-stable_win64.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawai\Desktop\GameDev\GameJam\jazzyjam-game\JazzyJam_BallonRose" />
       <option name="PASS_PARENT_ENVS" value="1" />

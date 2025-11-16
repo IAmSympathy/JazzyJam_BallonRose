@@ -1,7 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dttln8jusxhy2"]
+[gd_scene load_steps=2 format=3 uid="uid://b2oacsd5mxm6t"]
 
-[ext_resource type="Script" uid="uid://cpj5heb02hna5" path="res://Scenes/Ball/States/ball_state_free.gd" id="1_mdy22"]
+[ext_resource type="Script" uid="uid://x37q3ijqfg2y" path="res://Scenes/Ball/States/ball_state_free.gd" id="1_mdy22"]
 
 [node name="BallStateFree" type="Node"]
 script = ExtResource("1_mdy22")
-metadata/_custom_type_script = "uid://b0jcvyhhouatn"

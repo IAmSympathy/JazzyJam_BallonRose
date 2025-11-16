@@ -3,6 +3,8 @@ class_name PlayerStateMaster
 
 func enter():
 	super.enter()
+
+
 func exit():
 	super.exit()
 
@@ -11,4 +13,8 @@ func update(delta: float):
 	
 func handle_input(input : String, value : int, delta: float):
 	super.handle_input(input,value, delta)
+
+
+
+
 	
