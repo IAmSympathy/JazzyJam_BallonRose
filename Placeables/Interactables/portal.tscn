@@ -15,7 +15,7 @@ size = Vector2(20, 92)
 
 [node name="Portal" type="StaticBody2D"]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 6
 script = ExtResource("1_30x4u")
 
 [node name="Node2D" type="Node2D" parent="."]

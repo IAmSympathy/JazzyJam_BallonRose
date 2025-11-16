@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://duxdfteqld1u"]
 
-[ext_resource type="Script" uid="uid://b2vnf0cqhsi1v" path="res://UI/end_screen.gd" id="1_f6iv1"]
+[ext_resource type="Script" path="res://UI/end_screen.gd" id="1_f6iv1"]
 [ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="2_rx8bq"]
 [ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/text_theme.tres" id="4_5ommc"]
 [ext_resource type="AudioStream" uid="uid://bterset7mhpfs" path="res://Ressources/Musique/Title Screen.wav" id="5_ar6ac"]
@@ -24,7 +24,7 @@ offset_bottom = 140.0
 grow_horizontal = 2
 theme = ExtResource("4_5ommc")
 theme_override_font_sizes/font_size = 54
-text = "Merci d'avoir joue !"
+text = "Thanks for playing!"
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 8
@@ -39,7 +39,7 @@ offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_5ommc")
-text = "Quitter
+text = "Quit
 "
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
