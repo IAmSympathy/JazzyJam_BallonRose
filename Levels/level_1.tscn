@@ -25,5 +25,5 @@ other_portal = NodePath("../Portal2")
 
 [node name="Portal2" parent="." index="8" node_paths=PackedStringArray("other_portal") instance=ExtResource("3_3mhv4")]
 position = Vector2(330.00003, 230.00002)
-rotation = -2.9939628
+rotation = -4.389501
 other_portal = NodePath("../Portal")
