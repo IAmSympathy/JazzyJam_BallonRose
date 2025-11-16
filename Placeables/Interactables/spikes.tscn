@@ -1,7 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2nxngp5qm4ah"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw6ws"]
-size = Vector2(73, 77)
+[gd_scene load_steps=5 format=3 uid="uid://b2nxngp5qm4ah"]
 
 [sub_resource type="Gradient" id="Gradient_mm308"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
@@ -9,13 +6,24 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ryalp"]
 gradient = SubResource("Gradient_mm308")
 
-[node name="Spikes" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw6ws"]
+size = Vector2(73, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm308"]
+
+[node name="Spikes" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_ryalp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_bw6ws")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_ryalp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.1135523, 2.3881545)
+shape = SubResource("RectangleShape2D_mm308")

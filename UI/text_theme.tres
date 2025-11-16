@@ -1,4 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://ca8544mj1jbwa"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ca8544mj1jbwa"]
+
+[ext_resource type="FontFile" uid="uid://dknsivpiqbwb7" path="res://Ressources/UI/Witty.ttf" id="1_033u4"]
 
 [resource]
-default_font_size = 24
+default_font = ExtResource("1_033u4")
+default_font_size = 40
