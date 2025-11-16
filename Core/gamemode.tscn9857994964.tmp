@@ -117,6 +117,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_ehb2p")
 }
 
-[connection signal="game_complete" from="LevelManager" to="." method="_on_level_manager_game_complete"]
 [connection signal="level_complete" from="LevelManager" to="." method="_on_level_manager_level_complete"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

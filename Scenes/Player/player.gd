@@ -28,7 +28,6 @@ func _physics_process(delta: float) -> void:
 
 #Sert à être dans dans des tween de states par exemple
 func set_velocity_x(value : float) -> void:
-	print("lol")
 	velocity.x = value
 
 func _on_area_2d_body_entered(body: RigidBody2D):
