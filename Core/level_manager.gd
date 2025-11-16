@@ -2,7 +2,6 @@ extends Node
 class_name LevelManager
 
 var level_list := {
-	-1: preload("res://Levels/level_1.tscn"),
 	0: preload("res://Levels/level_1.tscn"),
 	1: preload("res://Levels/level_2.tscn"),
 }
@@ -10,7 +9,7 @@ var current_level: LevelMaster
 
 var player: CharacterBody2D
 var ball: RigidBody2D
-var curren_level_index: int = -1
+var curren_level_index: int = 0
 
 var player_scene: PackedScene = preload("res://Scenes/Player/player.tscn")
 var ball_scene: PackedScene = preload("res://Scenes/Ball/ball.tscn")
