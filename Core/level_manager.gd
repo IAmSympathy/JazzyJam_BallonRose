@@ -5,6 +5,9 @@ var level_list := {
 	-1: preload("res://Levels/level_1.tscn"),
 	0: preload("res://Levels/level_1.tscn"),
 	1: preload("res://Levels/level_2.tscn"),
+	2: preload("res://Levels/level_3.tscn"),
+	3: preload("res://Levels/level_4.tscn"),
+	4: preload("res://Levels/level_5.tscn"),
 }
 var current_level: LevelMaster 
 
@@ -19,10 +22,15 @@ signal game_complete
 signal on_lose
 
 func _ready() -> void:
+
+
+
 	var level_scene: PackedScene = level_list[curren_level_index]
 	current_level = level_scene.instantiate()
 	
 	start_level(current_level)
+
+	
 	
 func start_level(level: LevelMaster):
 	current_level = level
