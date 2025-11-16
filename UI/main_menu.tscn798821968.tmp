@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="2_f40uw"]
 [ext_resource type="Texture2D" uid="uid://ci1ij516f2wle" path="res://Ressources/UI/gamejam.jpg" id="3_d8nwk"]
 [ext_resource type="AudioStream" uid="uid://bterset7mhpfs" path="res://Ressources/Musique/Title Screen.wav" id="6_8ctay"]
-[ext_resource type="AudioStream" uid="uid://dmrhudg25fr80" path="res://Ressources/Sons/ClickStart(modifié).wav" id="7_ev3b6"]
+[ext_resource type="AudioStream" uid="uid://blj0k4vc5wlw" path="res://Ressources/Sons/ClickStart.wav" id="7_ev3b6"]
 
 [sub_resource type="Gradient" id="Gradient_4cwpn"]
 colors = PackedColorArray(0, 0, 0, 0.39215687, 0, 0, 0, 0.39215687)
@@ -37,7 +37,7 @@ offset_right = 773.0
 offset_bottom = 129.0
 theme = ExtResource("2_d8nwk")
 theme_override_font_sizes/font_size = 54
-text = "What does the fox?"
+text = "Jeu de renard"
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 4
@@ -49,7 +49,7 @@ offset_right = 472.0
 offset_bottom = 9.0
 grow_vertical = 2
 theme = ExtResource("2_d8nwk")
-text = "Play
+text = "Jouer
 "
 
 [node name="BG" type="TextureRect" parent="."]
@@ -115,10 +115,10 @@ offset_bottom = 157.0
 grow_horizontal = 0
 theme = ExtResource("2_d8nwk")
 theme_override_font_sizes/font_size = 24
-text = "Samy  Larochelle - Programmer
-Louis Allard - Programmer
-Benedict Angers - Music
-Arzhel Morel - SFX
+text = "Samy  Larochelle - Programmeur
+Louis Allard - Programmeur
+Joe - Bloe
+Bloe - Joeb
 "
 
 [node name="MusicAudioPlayer" type="AudioStreamPlayer2D" parent="."]
@@ -127,6 +127,6 @@ autoplay = true
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_ev3b6")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="finished" from="ClickSFX" to="." method="_on_click_sfx_finished"]

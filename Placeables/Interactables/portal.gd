@@ -23,3 +23,4 @@ func _on_portal_entered(body: Node2D) -> void:
 		
 func _on_other_portal_exited(body: Node2D) -> void:
 		other_portal.can_teleport = true
+		print("balle sortie")
