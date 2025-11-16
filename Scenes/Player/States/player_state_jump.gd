@@ -1,12 +1,15 @@
 extends PlayerStateMaster
 class_name PlayerStateJump
 
+@onready var animation: AnimationPlayer = $'../../AnimationPlayer'
+
 @export var jump_velocity: float = 350.0
 @export var move_speed : float = 20
 @export var duration_decelerate: float = 0.2
 
 func enter():
 	super.enter()
+	animation.play("jump")
 	state_manager.possessed_node.velocity.y = -jump_velocity
 	state_manager.possessed_node.move_and_slide()
 
@@ -26,7 +29,7 @@ func update(delta: float):
 	
 	if state_manager.possessed_node.velocity.y > 0:
 		state_manager.handle_state_transition(E_PlayerStates.fall)
-	
+		
 	state_manager.possessed_node.velocity.x += Input.get_axis("Left", "Right") * move_speed
 	state_manager.possessed_node.velocity.x = clamp(state_manager.possessed_node.velocity.x,-state_manager.possessed_node.base_speed,state_manager.possessed_node.base_speed)
 	state_manager.possessed_node.move_and_slide()

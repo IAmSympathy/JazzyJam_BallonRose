@@ -1,12 +1,20 @@
 extends CharacterBody2D
 
+@onready var fleche: Sprite2D = $Fleche
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+@export var minThrowStrength: float
+@export var maxThrowStrength: float 
+
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var base_speed: float = 200.0
-
-signal on_death
+var ballRef: RigidBody2D = null
+var chargeStrength: float = 0.0
 
 func _ready() -> void:
 	$PickupArea.connect("body_entered", _on_area_2d_body_entered)
+	fleche.visible = false
 
 
 
@@ -17,16 +25,33 @@ func _physics_process(delta: float) -> void:
 	#MoveX
 	if Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Right") or Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
 		$StateManager.handle_state_input(E_Inputs.move_x, Input.get_axis("Left","Right"), delta)
+		animation_player.play("Run" if Input.get_axis("Left","Right") != 0 else "Idle")
 
 	if Input.is_action_just_pressed("Jump"):
 		$StateManager.handle_state_input(E_Inputs.jump, 1, delta)
 	if Input.is_action_just_released("Jump"):
 		$StateManager.handle_state_input(E_Inputs.jump, 0, delta)
+
+	if $BallHolder.has_node("RigidBody2D"):
+		ballRef = $BallHolder.get_child(0) as RigidBody2D
+	
+	if Input.is_action_pressed("ThrowBall") and ballRef != null:
+		global_position.distance_to(get_global_mouse_position())
+		chargeStrength = clamp(remap(global_position.distance_to(get_global_mouse_position()), 0, 200, minThrowStrength, maxThrowStrength), minThrowStrength, maxThrowStrength)
 		
-	var ball = $BallHolder.get_child(0) as RigidBody2D
-	if Input.is_action_just_pressed("ThrowBall") and ball != null: 
-		
-		throwBall(ball)
+		fleche.visible = true
+		fleche.rotation = (get_global_mouse_position() - global_position).angle()
+		fleche.scale = Vector2(-chargeStrength / maxThrowStrength, 1 )
+
+
+
+
+	if Input.is_action_just_released("ThrowBall") and ballRef != null:
+		throwBall(ballRef, chargeStrength) 
+		fleche.visible = false
+		print("Thrown with strength: " + str(chargeStrength))
+
+	ballRef = null
 
 #Sert à être dans dans des tween de states par exemple
 func set_velocity_x(value : float) -> void:
@@ -36,14 +61,19 @@ func _on_area_2d_body_entered(body: RigidBody2D):
 	attachBall(body)
 
 
-func throwBall(ball:RigidBody2D):
+
+func throwBall(ball:RigidBody2D, strength:float):
 	ball.connect( "can_be_picked_up",enablePickUpBall)
 	#togglePickUpBall(true)	#$Area2D.connect("body_entered", _on_area_2d_body_entered)
+	enablePickUpBall()
 	ball.get_parent().remove_child(ball)
 	get_parent().add_child(ball)
 	ball.global_position = $BallHolder.global_position
 	ball.get_state_manager().handle_state_transition("Free")
-	ball.apply_impulse(Vector2(1, -0.5).normalized() * 200.0)
+
+	
+	var direction = (get_global_mouse_position() - ball.global_position).normalized()
+	ball.apply_impulse(-direction * strength)
 	
 
 
@@ -58,12 +88,16 @@ func attachBall(ball: RigidBody2D) -> void:
 
 	print("Zone penetrée")
 	ball.ballfreeze()
+	#togglePickUpBall(false)
 	disablePickUpBall()	#$Area2D.disconnect("body_entered", _on_area_2d_body_entered)
 	ball.get_parent().remove_child(ball)
 	$BallHolder.add_child(ball)
 	ball.global_position = $BallHolder.global_position
 	ball.get_state_manager().handle_state_transition("Held")
 
+
+func togglePickUpBall(value: bool) -> void:
+	$PickupArea.monitoring = value
 func enablePickUpBall() -> void:
 	$PickupArea.monitoring = true
 	print("Pick Up Enabled")
@@ -73,9 +107,9 @@ func disablePickUpBall() -> void:
 	$PickupArea.monitoring = false
 	print("Pick Up Disabled")
 
+func updateFacingDirection(direction: Vector2) -> void:
+	if direction.x != 0:
+		$Sprite2D.scale.x = sign(direction.x) * abs($Sprite2D.scale.x)
+
 
 	
-
-#Losrque le player touche un pic
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	on_death.emit()
