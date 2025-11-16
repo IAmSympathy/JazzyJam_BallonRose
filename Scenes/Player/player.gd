@@ -112,6 +112,7 @@ func updateFacingDirection(direction: Vector2) -> void:
 	if direction.x != 0:
 		$Sprite2D.scale.x = sign(direction.x) * abs($Sprite2D.scale.x)
 
+
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("adadad")
 	on_death.emit()
