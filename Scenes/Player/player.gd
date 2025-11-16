@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
+	updateFacingDirection()
 	move_and_slide()
 	$StateManager.call_active_state_update(delta)
 	#MoveX
@@ -109,9 +110,11 @@ func disablePickUpBall() -> void:
 	$PickupArea.monitoring = false
 	print("Pick Up Disabled")
 
-func updateFacingDirection(direction: Vector2) -> void:
-	if direction.x != 0:
-		$Sprite2D.scale.x = sign(direction.x) * abs($Sprite2D.scale.x)
+func updateFacingDirection() -> void:
+	if Input.is_action_pressed("Left"):
+		$Sprites.scale.x = -0.25
+	elif Input.is_action_pressed("Right"):
+		$Sprites.scale.x = 0.25
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
