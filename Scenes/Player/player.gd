@@ -101,9 +101,9 @@ func attachBall(ball: RigidBody2D) -> void:
 
 # func togglePickUpBall(value: bool) -> void:
 # 	$PickupArea.monitoring = value
-# func enablePickUpBall() -> void:
-# 	$PickupArea.monitoring = true
-# 	print("Pick Up Enabled")
+func enablePickUpBall() -> void:
+	$PickupArea.monitoring = true
+	print("Pick Up Enabled")
 
 	
 func disablePickUpBall() -> void:
