@@ -8846,6 +8846,7 @@ shape = SubResource("RectangleShape2D_l2i54")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
+position = Vector2(0, -71)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_xdwi4")
 

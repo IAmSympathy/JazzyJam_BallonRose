@@ -4,7 +4,9 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var minThrowStrength: float
-@export var maxThrowStrength: float 
+@export var maxThrowStrength: float
+
+signal on_death 
 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -25,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	#MoveX
 	if Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Right") or Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
 		$StateManager.handle_state_input(E_Inputs.move_x, Input.get_axis("Left","Right"), delta)
-		animation_player.play("Run" if Input.get_axis("Left","Right") != 0 else "Idle")
 
 	if Input.is_action_just_pressed("Jump"):
 		$StateManager.handle_state_input(E_Inputs.jump, 1, delta)
@@ -111,5 +112,6 @@ func updateFacingDirection(direction: Vector2) -> void:
 	if direction.x != 0:
 		$Sprite2D.scale.x = sign(direction.x) * abs($Sprite2D.scale.x)
 
-
-	
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	print("adadad")
+	on_death.emit()
