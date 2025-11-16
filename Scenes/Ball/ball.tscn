@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfr3kf48m5u21"]
+[gd_scene load_steps=10 format=3 uid="uid://dfr3kf48m5u21"]
 
 [ext_resource type="Script" uid="uid://bd2biimtsq78" path="res://Scenes/Ball/ball.gd" id="1_1rrwo"]
 [ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Core/State Machine/state_manager.gd" id="3_qrf04"]
@@ -13,6 +13,8 @@ bounce = 1.0
 [sub_resource type="SphereMesh" id="SphereMesh_ni1na"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ni1na"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw8co"]
 
 [node name="Balle" type="RigidBody2D"]
 collision_layer = 4
@@ -50,3 +52,13 @@ state_name = "Held"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_j33xc")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(1.8068755, 1.721373)
+shape = SubResource("CircleShape2D_uw8co")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

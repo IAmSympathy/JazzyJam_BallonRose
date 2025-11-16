@@ -40,6 +40,7 @@ func start_level(level: LevelMaster):
 	var ball_holder := player.get_node("BallHolder")
 	ball_holder.add_child(ball)
 	ball.global_position = ball_holder.global_position
+	ball.connect("on_death", on_player_death)
 	
 	player.position = current_level.get_node("Start").position + Vector2(0, -32)
 	player.connect("on_death", on_player_death)
