@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://ke0n4uqj7qxa"]
+
+[ext_resource type="Script" uid="uid://fmqpti2smmjb" path="res://UI/main_menu.gd" id="1_4cwpn"]
+[ext_resource type="Texture2D" uid="uid://cecrqkstdfku3" path="res://Ressources/Player/Sprites/Animation/Te╠éte.png" id="1_tk8dj"]
+[ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/text_theme.tres" id="2_d8nwk"]
+[ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="2_f40uw"]
+[ext_resource type="Texture2D" uid="uid://ci1ij516f2wle" path="res://Ressources/UI/gamejam.jpg" id="3_d8nwk"]
+
+[sub_resource type="Gradient" id="Gradient_4cwpn"]
+colors = PackedColorArray(0, 0, 0, 0.39215687, 0, 0, 0, 0.39215687)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f40uw"]
+gradient = SubResource("Gradient_4cwpn")
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_4cwpn")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(619, 322)
+scale = Vector2(0.2552924, 0.2552924)
+texture = ExtResource("2_f40uw")
+
+[node name="Logo" type="TextureRect" parent="."]
+anchors_preset = -1
+offset_left = -173.00002
+offset_top = 6.0
+offset_right = 1396.0
+offset_bottom = 774.0
+scale = Vector2(0.39233875, 0.43233874)
+texture = ExtResource("1_tk8dj")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 257.0
+offset_top = 69.0
+offset_right = 773.0
+offset_bottom = 129.0
+theme = ExtResource("2_d8nwk")
+theme_override_font_sizes/font_size = 54
+text = "Jeu de renard"
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 350.0
+offset_top = -40.0
+offset_right = 472.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme = ExtResource("2_d8nwk")
+text = "Jouer
+"
+
+[node name="BG" type="TextureRect" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -463.99994
+offset_top = -2.9999998
+offset_right = -399.99994
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(7.4, 1)
+texture = SubResource("GradientTexture2D_f40uw")
+
+[node name="Jam2" type="Label" parent="."]
+offset_left = 847.0
+offset_top = 328.0
+offset_right = 1363.0
+offset_bottom = 403.0
+theme = ExtResource("2_d8nwk")
+theme_override_font_sizes/font_size = 35
+text = "Part of 
+Jazzy Jam 2025"
+
+[node name="Jam" type="TextureRect" parent="."]
+z_index = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -430.99994
+offset_top = -294.99997
+offset_right = 849.0
+offset_bottom = 665.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.23162082, 0.23162082)
+texture = ExtResource("3_d8nwk")
+
+[node name="CreditsLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -435.0
+offset_top = 13.0
+offset_right = -275.0
+offset_bottom = 54.0
+grow_horizontal = 0
+theme = ExtResource("2_d8nwk")
+text = "Credits:"
+
+[node name="CreditsLabel2" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -433.0
+offset_top = 72.0
+offset_right = 44.0
+offset_bottom = 157.0
+grow_horizontal = 0
+theme = ExtResource("2_d8nwk")
+theme_override_font_sizes/font_size = 24
+text = "Samy  Larochelle - Programmeur
+Louis Allard - Programmeur
+Joe - Bloe
+Bloe - Joeb
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

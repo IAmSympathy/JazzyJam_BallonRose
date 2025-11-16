@@ -11,6 +11,7 @@ func _on_level_manager_level_complete() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	$LevelManager.get_node("CanvasLayer/LevelName").visible = true
 	if anim_name == "transition_out":
 		if bHasLoss:
 			$LevelManager.restart_level()
@@ -18,6 +19,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		else:
 			$LevelManager.next_level()
 		$AnimationPlayer.play("transition_in")
+
+
 
 func _on_level_manager_game_complete() -> void:
 	var end_screen_scene: PackedScene = preload("res://UI/end_screen.tscn")

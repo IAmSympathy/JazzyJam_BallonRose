@@ -22,13 +22,13 @@ position = Vector2(-27, 6)
 scale = Vector2(0.25, 0.2)
 
 [node name="BG" type="Sprite2D" parent="Node2D"]
-z_index = -10
+z_index = -1
 position = Vector2(-70, 40.000015)
 scale = Vector2(0.8955929, 1.1720104)
 texture = ExtResource("2_p2crj")
 
 [node name="FG" type="Sprite2D" parent="Node2D"]
-z_index = 220
+z_index = 1
 position = Vector2(79.99999, -19.999998)
 texture = ExtResource("3_sgk74")
 
