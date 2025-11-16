@@ -1,8 +1,6 @@
 extends RigidBody2D
 class_name Ball
 
-
-
 var can_be_picked_up = false
 
 func _ready():
