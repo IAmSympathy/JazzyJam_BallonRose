@@ -11,6 +11,7 @@ var current_level: LevelMaster
 var player: CharacterBody2D
 var ball: RigidBody2D
 var curren_level_index: int = -1
+
 var player_scene: PackedScene = preload("res://Scenes/Player/player.tscn")
 var ball_scene: PackedScene = preload("res://Scenes/Ball/ball.tscn")
 signal level_complete
@@ -52,7 +53,7 @@ func next_level():
 	current_level.queue_free()
 	curren_level_index += 1
 	
-	if curren_level_index < level_list.size():
+	if curren_level_index < level_list.size() - 1:
 		start_level(level_list[curren_level_index].instantiate())
 	else:
 		game_complete.emit()

@@ -8816,6 +8816,7 @@ z_index = -100
 tile_set = SubResource("TileSet_d8bb8")
 
 [node name="TM_Main" type="TileMapLayer" parent="."]
+z_index = -80
 scale = Vector2(0.25, 0.25)
 tile_set = SubResource("TileSet_yj0h4")
 
@@ -8840,8 +8841,8 @@ shape = SubResource("RectangleShape2D_l2i54")
 [node name="AnimatedBlueStar" parent="End" instance=ExtResource("4_0i56b")]
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -100
-position = Vector2(0, -71)
+z_index = -1000
+position = Vector2(-22.999998, -70)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_xdwi4")
 

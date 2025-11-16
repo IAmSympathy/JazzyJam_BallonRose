@@ -90,11 +90,12 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1397.0
-offset_top = 4.0
+offset_top = -68.0
 offset_right = 1663.0
-offset_bottom = 4.0
+offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.2800006)
 texture = SubResource("GradientTexture2D_ehb2p")
 
 [node name="Spikes2" type="TextureRect" parent="CanvasLayer"]
