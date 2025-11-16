@@ -13,6 +13,7 @@ var curren_level_index: int = 0
 var player_scene: PackedScene = preload("res://Scenes/Player/player.tscn")
 signal level_complete
 signal game_complete
+signal on_lose
 
 func _ready() -> void:
 	var level_scene: PackedScene = level_list[curren_level_index]
@@ -27,9 +28,13 @@ func start_level(level: LevelMaster):
 
 	#Spawn le player ou le téléporte
 	
+	if player != null:
+		player.queue_free()
+		
 	player = player_scene.instantiate() as CharacterBody2D
 	add_child(player)
 	player.position = current_level.get_node("Start").position
+	player.connect("on_death", on_player_death)
 	
 	current_level.connect("end_reached",on_level_end_reached)
 
@@ -50,3 +55,9 @@ func next_level():
 func on_level_end_reached() -> void:
 	current_level.disconnect("end_reached", on_level_end_reached)
 	level_complete.emit()
+
+func on_player_death():
+	on_lose.emit()
+
+func restart_level():
+	start_level(current_level)
