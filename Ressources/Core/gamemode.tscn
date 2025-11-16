@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dk55py8pyi8qk"]
 
-[ext_resource type="Script" uid="uid://71espji6khq" path="res://Core/gamemode.gd" id="1_h8j6w"]
-[ext_resource type="PackedScene" uid="uid://y0hcsfqt30h" path="res://Core/level_manager.tscn" id="1_l7bdk"]
+[ext_resource type="Script" uid="uid://71espji6khq" path="res://Ressources/Core/gamemode.gd" id="1_h8j6w"]
+[ext_resource type="PackedScene" uid="uid://y0hcsfqt30h" path="res://Ressources/Core/level_manager.tscn" id="1_l7bdk"]
 [ext_resource type="Texture2D" uid="uid://dbw2nueg7e4my" path="res://Ressources/UI/Level_Transition.png" id="4_qlrv1"]
 
 [sub_resource type="Gradient" id="Gradient_qlrv1"]
@@ -88,9 +88,9 @@ texture = ExtResource("4_qlrv1")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1269.0
+offset_left = 1397.0
 offset_top = 4.0
-offset_right = 1535.0
+offset_right = 1663.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -101,10 +101,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1440.0
-offset_top = -41.0
-offset_right = 1535.0
-offset_bottom = 31.0
+offset_left = 1568.0
+offset_top = 33.0
+offset_right = 1663.0
+offset_bottom = 105.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(-1, -1)

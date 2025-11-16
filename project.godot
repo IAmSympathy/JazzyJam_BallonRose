@@ -17,8 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-E_Inputs="*res://Core/State Machine/e_inputs.gd"
-E_PlayerStates="*res://Core/State Machine/e_player_states.gd"
+E_Inputs="*res://Ressources/Core/State Machine/e_inputs.gd"
+E_PlayerStates="*res://Ressources/Core/State Machine/e_player_states.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [editor_plugins]
 

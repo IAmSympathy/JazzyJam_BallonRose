@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdxhn7g41cfk7"
-path="res://.godot/imported/Ball pit.jpg-18ed864a0989bd4a4ae1da892e364173.ctex"
+uid="uid://dv2sjvmm6rpqv"
+path="res://.godot/imported/Background.png-7b2c66a974e4c184cd7c5282eb82f92b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Placeables/Interactables/Ball pit.jpg"
-dest_files=["res://.godot/imported/Ball pit.jpg-18ed864a0989bd4a4ae1da892e364173.ctex"]
+source_file="res://Ressources/Environnment/Japan/Background.png"
+dest_files=["res://.godot/imported/Background.png-7b2c66a974e4c184cd7c5282eb82f92b.ctex"]
 
 [params]
 
