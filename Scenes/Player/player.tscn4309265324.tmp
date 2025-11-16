@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bjh4fgej2owjf"]
+[gd_scene load_steps=27 format=3 uid="uid://bjh4fgej2owjf"]
 
 [ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Core/State Machine/state_manager.gd" id="1_uvnfx"]
 [ext_resource type="Script" uid="uid://dqr87slk6uhor" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
@@ -14,8 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dwn8e06vx1ie" path="res://Ressources/Player/Sprites/Animation/Panda jambe G.png" id="12_hnuln"]
 [ext_resource type="Texture2D" uid="uid://cqe5s0dalv2kl" path="res://Ressources/Player/Sprites/Animation/Panda queue.png" id="13_aqm4k"]
 [ext_resource type="Texture2D" uid="uid://m7655ydv348n" path="res://Ressources/Player/Sprites/fleche.png" id="14_7g0yx"]
-[ext_resource type="AudioStream" uid="uid://c36k2vgmntw4" path="res://Ressources/Sons/bruitsDePas/Pas7.wav" id="15_ks1b7"]
-[ext_resource type="AudioStream" uid="uid://nrq4l867rqh" path="res://Ressources/Sons/bruitsDePas/Pas8.wav" id="16_hnuln"]
+[ext_resource type="AudioStream" uid="uid://bq7cf5gr05oht" path="res://Ressources/Sons/bruitsDePas/Pas10.wav" id="15_dey5f"]
 [ext_resource type="Script" uid="uid://dh02cqnxikhxc" path="res://Scenes/Player/bruits_de_pas.gd" id="16_r5xpd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g0yx"]
@@ -212,12 +211,21 @@ tracks/15/path = NodePath("BruitsDePas")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BruitsDePas:stream")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"play"
-}]
+"update": 1,
+"values": [ExtResource("15_dey5f")]
 }
 
 [sub_resource type="Animation" id="Animation_r5xpd"]
@@ -379,25 +387,29 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(0, -6)]
 }
-tracks/13/type = "audio"
+tracks/13/type = "method"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("BruitsDePas")
+tracks/13/path = NodePath("play_random_footstep")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("15_ks1b7")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("16_hnuln")
-}],
-"times": PackedFloat32Array(0.3, 0.8333333)
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
-tracks/13/use_blend = true
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BruitsDePas:stream")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_hnuln"]
 resource_name = "RunHoldBall"
@@ -1028,12 +1040,15 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g0yx"]
 size = Vector2(89.05887, 125.76757)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("footsteps")]
 position = Vector2(0, 2)
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 57
 script = ExtResource("1_xpcdj")
+footsteps = [null]
+minThrowStrength = null
+maxThrowStrength = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, -8)
@@ -1147,5 +1162,5 @@ scale = Vector2(1.0105674, 1.1568007)
 shape = SubResource("RectangleShape2D_7g0yx")
 
 [node name="BruitsDePas" type="AudioStreamPlayer2D" parent="."]
-pitch_scale = 0.01
+stream = ExtResource("15_dey5f")
 script = ExtResource("16_r5xpd")

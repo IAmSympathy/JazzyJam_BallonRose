@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var fleche: Sprite2D = $Fleche
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
+
 @export var minThrowStrength: float = 100
 @export var maxThrowStrength: float = 600
 
@@ -122,6 +124,6 @@ func updateFacingDirection() -> void:
 		fleche.global_position.x = holder.global_position.x
 
 
+
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	print("adadad")
 	on_death.emit()
