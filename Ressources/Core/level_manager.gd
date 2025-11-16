@@ -8,9 +8,11 @@ var level_list := {
 var current_level: LevelMaster 
 
 var player: CharacterBody2D
+var ball: RigidBody2D
 var curren_level_index: int = 0
 
 var player_scene: PackedScene = preload("res://Scenes/Player/player.tscn")
+var ball_scene: PackedScene = preload("res://Scenes/Ball/ball.tscn")
 signal level_complete
 signal game_complete
 signal on_lose
@@ -30,10 +32,15 @@ func start_level(level: LevelMaster):
 	
 	if player != null:
 		player.queue_free()
-		
 	player = player_scene.instantiate() as CharacterBody2D
 	add_child(player)
-	player.position = current_level.get_node("Start").position
+
+	ball = ball_scene.instantiate() as RigidBody2D
+	var ball_holder := player.get_node("BallHolder")
+	ball_holder.add_child(ball)
+	ball.global_position = ball_holder.global_position
+	
+	player.position = current_level.get_node("Start").position + Vector2(0, -32)
 	player.connect("on_death", on_player_death)
 	
 	current_level.connect("end_reached",on_level_end_reached)
@@ -41,6 +48,7 @@ func start_level(level: LevelMaster):
 
 func next_level():
 	player.queue_free()
+	ball.queue_free()
 	current_level.queue_free()
 	curren_level_index += 1
 	

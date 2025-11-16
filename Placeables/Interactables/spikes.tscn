@@ -10,8 +10,8 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
 gradient = SubResource("Gradient_mm308")
 
 [node name="Spikes" type="Area2D"]
-collision_layer = 32
-collision_mask = 0
+collision_layer = 34
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1.5)

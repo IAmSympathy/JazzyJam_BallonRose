@@ -6,3 +6,4 @@ signal end_reached
 
 func _on_end_body_entered(body: Node2D) -> void:
 	end_reached.emit()
+	print("Level Complete!")

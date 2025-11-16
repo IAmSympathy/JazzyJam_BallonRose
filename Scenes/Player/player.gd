@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var fleche: Sprite2D = $Fleche
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var minThrowStrength: float
-@export var maxThrowStrength: float
+@export var minThrowStrength: float = 100
+@export var maxThrowStrength: float = 600
 
 signal on_death 
 
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("Jump"):
 		$StateManager.handle_state_input(E_Inputs.jump, 0, delta)
 
-	if $BallHolder.has_node("RigidBody2D"):
+	if $BallHolder.get_child_count() > 0:
 		ballRef = $BallHolder.get_child(0) as RigidBody2D
 	
 	if Input.is_action_pressed("ThrowBall") and ballRef != null:
@@ -98,11 +98,11 @@ func attachBall(ball: RigidBody2D) -> void:
 	ball.get_state_manager().handle_state_transition("Held")
 
 
-func togglePickUpBall(value: bool) -> void:
-	$PickupArea.monitoring = value
-func enablePickUpBall() -> void:
-	$PickupArea.monitoring = true
-	print("Pick Up Enabled")
+# func togglePickUpBall(value: bool) -> void:
+# 	$PickupArea.monitoring = value
+# func enablePickUpBall() -> void:
+# 	$PickupArea.monitoring = true
+# 	print("Pick Up Enabled")
 
 	
 func disablePickUpBall() -> void:
@@ -110,10 +110,15 @@ func disablePickUpBall() -> void:
 	print("Pick Up Disabled")
 
 func updateFacingDirection() -> void:
-	if Input.is_action_pressed("Left"):
-		$Sprites.scale.x = -0.25
-	elif Input.is_action_pressed("Right"):
-		$Sprites.scale.x = 0.25
+	var dir := Input.get_axis("Left", "Right")
+	if dir != 0:
+		# Flip le sprite
+		$Sprites.scale.x = 0.25 * sign(dir)
+		
+		# Place le BallHolder du bon côté du joueur
+		var holder := $BallHolder
+		holder.position.x = abs(holder.position.x) * sign(dir)
+		fleche.global_position.x = holder.global_position.x
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:

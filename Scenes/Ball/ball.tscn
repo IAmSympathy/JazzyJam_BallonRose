@@ -1,22 +1,23 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfr3kf48m5u21"]
 
 [ext_resource type="Script" uid="uid://bd2biimtsq78" path="res://Scenes/Ball/ball.gd" id="1_1rrwo"]
-[ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Core/State Machine/state_manager.gd" id="3_qrf04"]
+[ext_resource type="Script" uid="uid://cb4yc8v6xgeyg" path="res://Ressources/Core/State Machine/state_manager.gd" id="3_qrf04"]
 [ext_resource type="Script" uid="uid://x37q3ijqfg2y" path="res://Scenes/Ball/States/ball_state_free.gd" id="4_uw8co"]
 [ext_resource type="Texture2D" uid="uid://ncrt7lh127i5" path="res://Ressources/Ball/ballSprite.png" id="5_j33xc"]
 [ext_resource type="Script" path="res://Scenes/Ball/States/ball_state_held.gd" id="5_uw8co"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ni1na"]
 friction = 0.0
-bounce = 0.67
+bounce = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_ni1na"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ni1na"]
 
 [node name="Balle" type="RigidBody2D"]
+collision_layer = 5
 physics_material_override = SubResource("PhysicsMaterial_ni1na")
-gravity_scale = 0.7
+gravity_scale = 0.0
 script = ExtResource("1_1rrwo")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
@@ -32,7 +33,6 @@ script = ExtResource("3_qrf04")
 active_state = NodePath("../States/BallStateFree")
 possessed_node = NodePath("..")
 states = [NodePath("../States/BallStateFree"), NodePath("../States/BallStateHeld")]
-metadata/_custom_type_script = "uid://we1rdbcsa7vv"
 
 [node name="States" type="Node" parent="."]
 
@@ -47,4 +47,5 @@ state_manager = NodePath("../../StateManager")
 state_name = "Held"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_j33xc")
