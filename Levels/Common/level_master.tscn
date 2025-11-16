@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://whdfqfbehvc5"]
+[gd_scene load_steps=14 format=3 uid="uid://whdfqfbehvc5"]
 
 [ext_resource type="Script" uid="uid://d3q7krnumntwu" path="res://Levels/Common/level_master.gd" id="1_l2i54"]
 [ext_resource type="Texture2D" uid="uid://w04d1s6erum1" path="res://Ressources/Environnment/Test/walls.png" id="2_w25xf"]
 [ext_resource type="Texture2D" uid="uid://cy6khr38mhfvw" path="res://Ressources/Environnment/Japan/tileset.png" id="3_t1k23"]
+[ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="4_xdwi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gpbr1"]
 texture = ExtResource("2_w25xf")
@@ -8786,6 +8787,10 @@ texture_region_size = Vector2i(256, 256)
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
 4:0/0 = 0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, 0, -128, 128, 128, 128, 128, -128, -32, -128)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
 
 [sub_resource type="TileSet" id="TileSet_yj0h4"]
 tile_size = Vector2i(256, 256)
@@ -8838,5 +8843,10 @@ texture = SubResource("GradientTexture2D_lv1nh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 shape = SubResource("RectangleShape2D_l2i54")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_xdwi4")
 
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
