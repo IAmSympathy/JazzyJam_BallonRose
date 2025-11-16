@@ -5,20 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42a54f70-04f7-40ce-9d6d-451dc2085ff9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/State Machine/state.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Core/State Machine/state.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/State Machine/state.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Core/State Machine/state.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/State Machine/state_manager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Core/State Machine/state_manager.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/game_instance.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Core/game_instance.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/gamemode.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Core/gamemode.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/gamemode.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Core/gamemode.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/level_manager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Core/level_manager.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/level_manager.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Core/level_manager.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/level_master.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/level_master.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/level_master.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Player/States/player_state_idle.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/States/player_state_idle.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Player/States/player_state_jump.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/States/player_state_jump.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Player/States/player_state_run.gd" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/States/player_state_run.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Levels/Common/level_master.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Levels/Common/level_master.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Levels/level_1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Levels/level_1.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_free.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_free.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_held.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/States/ball_state_held.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/ball.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Ball/ball_test.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Ball/ball_test.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Player/States/player_state_fall.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/States/player_state_fall.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Player/States/player_state_idle.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/States/player_state_idle.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Player/States/player_state_jump.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/States/player_state_jump.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Player/States/player_state_run.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/States/player_state_run.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/player.tscn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="265" />
+    <option name="cachedIndexableFilesCount" value="287" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -128,6 +132,7 @@
       <workItem from="1763176396269" duration="884000" />
       <workItem from="1763235016877" duration="3423000" />
       <workItem from="1763239189813" duration="5999000" />
+      <workItem from="1763246415393" duration="8989000" />
     </task>
     <servers />
   </component>

@@ -4,4 +4,5 @@
 
 [node name="PlayerStateFall" type="Node"]
 script = ExtResource("1_1v7t5")
+state_name = "Fall"
 metadata/_custom_type_script = "uid://dve3fa076rhti"

@@ -4,9 +4,8 @@
 [ext_resource type="Script" uid="uid://d3q7krnumntwu" path="res://Levels/Common/level_master.gd" id="1_sewum"]
 [ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/text_theme.tres" id="3_433ea"]
 
-[node name="LevelManager" type="Node" node_paths=PackedStringArray("level_list")]
+[node name="LevelManager" type="Node"]
 script = ExtResource("1_ebwdb")
-level_list = [NodePath("LevelMaster")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

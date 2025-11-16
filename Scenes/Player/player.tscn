@@ -31,29 +31,28 @@ shape = SubResource("RectangleShape2D_hvfyp")
 script = ExtResource("1_uvnfx")
 active_state = NodePath("../States/PlayerStateIdle")
 possessed_node = NodePath("..")
-states = {
-"Fall": NodePath("../States/PlayerStateFall"),
-"Idle": NodePath("../States/PlayerStateIdle"),
-"Jump": NodePath("../States/PlayerStateJump"),
-"Run": NodePath("../States/PlayerStateRun")
-}
+states = [NodePath("../States/PlayerStateIdle"), NodePath("../States/PlayerStateRun"), NodePath("../States/PlayerStateJump"), NodePath("../States/PlayerStateFall")]
 
 [node name="States" type="Node" parent="."]
 
 [node name="PlayerStateIdle" type="Node" parent="States"]
 script = ExtResource("3_mtuoh")
+state_name = "Idle"
 metadata/_custom_type_script = "uid://b13qioohkndro"
 
 [node name="PlayerStateRun" type="Node" parent="States"]
 script = ExtResource("4_mtuoh")
+state_name = "Run"
 metadata/_custom_type_script = "uid://1hyrb16w64qr"
 
 [node name="PlayerStateJump" type="Node" parent="States"]
 script = ExtResource("5_htcer")
+state_name = "Jump"
 metadata/_custom_type_script = "uid://b2i2k78y8legc"
 
 [node name="PlayerStateFall" type="Node" parent="States"]
 script = ExtResource("6_dd0ac")
+state_name = "Fall"
 metadata/_custom_type_script = "uid://b2hiabe6vcmu7"
 
 [node name="Camera2D" type="Camera2D" parent="."]

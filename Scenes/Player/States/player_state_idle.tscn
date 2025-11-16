@@ -4,4 +4,5 @@
 
 [node name="PlayerStateIdle" type="Node"]
 script = ExtResource("1_odfjc")
+state_name = "Idle"
 metadata/_custom_type_script = "uid://dve3fa076rhti"

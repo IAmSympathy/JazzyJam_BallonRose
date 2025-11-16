@@ -4,4 +4,4 @@
 
 [node name="BallStateHeld" type="Node"]
 script = ExtResource("1_gdwuq")
-metadata/_custom_type_script = "uid://b0jcvyhhouatn"
+state_name = "Held"

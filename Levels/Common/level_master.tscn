@@ -960,8 +960,11 @@ sources/2 = SubResource("TileSetAtlasSource_gpbr1")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sp30b"]
 texture = ExtResource("3_lv1nh")
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
@@ -1396,6 +1399,8 @@ texture = ExtResource("3_lv1nh")
 24:24/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_yj0h4"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_sp30b")
 
 [sub_resource type="Gradient" id="Gradient_l2i54"]

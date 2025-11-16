@@ -4,4 +4,5 @@
 
 [node name="PlayerStateJump" type="Node"]
 script = ExtResource("1_3nhpw")
+state_name = "Jump"
 metadata/_custom_type_script = "uid://dve3fa076rhti"

@@ -2,6 +2,7 @@ extends Node
 class_name State
 
 @onready var state_manager: Node = $"../../StateManager"
+@export var state_name: String = "Default"
 
 #Est appellé lorsqu'on entre dans le state
 func enter():
