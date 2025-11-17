@@ -14,7 +14,7 @@ tile_map_data = PackedByteArray("AAAHAAMAAQABAAAAAAAIAAMAAQABAAAAAAAFAAMAAQABAAA
 position = Vector2(516, 152)
 
 [node name="End" parent="." index="4"]
-position = Vector2(-531, -282)
+position = Vector2(-512, -282)
 
 [node name="Spikes" parent="." index="6" instance=ExtResource("2_e78ah")]
 position = Vector2(21, 191)
@@ -23,10 +23,10 @@ position = Vector2(21, 191)
 position = Vector2(9, -85)
 
 [node name="Portal" parent="." index="8" node_paths=PackedStringArray("other_portal") instance=ExtResource("3_nsqb1")]
-position = Vector2(-396, -303)
+position = Vector2(-329, -303)
 other_portal = NodePath("../Portal2")
 
 [node name="Portal2" parent="." index="9" node_paths=PackedStringArray("other_portal") instance=ExtResource("3_nsqb1")]
-position = Vector2(-400, 203)
+position = Vector2(-277, 203)
 rotation = 1.6976012
 other_portal = NodePath("../Portal")

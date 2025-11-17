@@ -48,8 +48,8 @@ func _physics_process(delta: float) -> void:
 		fleche.rotation = (get_global_mouse_position() - global_position).angle()
 		fleche.scale = Vector2(-chargeStrength / maxThrowStrength, 1 )
 
-
-
+	if position.y > 380:
+		on_death.emit()
 
 	if Input.is_action_just_released("ThrowBall") and ballRef != null:
 		throwBall(ballRef, chargeStrength) 
