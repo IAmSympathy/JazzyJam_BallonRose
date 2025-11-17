@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=4 uid="uid://cof8uyrfeuqrl"]
+
+[ext_resource type="PackedScene" uid="uid://whdfqfbehvc5" path="res://Levels/Common/level_master.tscn" id="1_5lru4"]
+[ext_resource type="PackedScene" uid="uid://b2nxngp5qm4ah" path="res://Placeables/Interactables/spikes.tscn" id="2_ej5lj"]
+
+[node name="Level3" instance=ExtResource("1_5lru4")]
+level_name = "Careful!"
+
+[node name="TM_Main" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAGAAAAAQAFAAAAAAAHAAAAAQAFAAAAAAAIAAAAAQAGAAAAAAAFAAAAAQAFAAAAAAADAAAAAQAEAAAAAAAEAAAAAQAFAAAAAAD9/wAAAQAEAAAAAAD+/wAAAQAFAAAAAAD//wAAAQAGAAAAAAA=")
+
+[node name="Start" parent="." index="3"]
+position = Vector2(511, -61)
+
+[node name="End" parent="." index="4"]
+position = Vector2(-500, -72)
+
+[node name="Spikes" parent="." index="6" instance=ExtResource("2_ej5lj")]
+position = Vector2(94, 109)

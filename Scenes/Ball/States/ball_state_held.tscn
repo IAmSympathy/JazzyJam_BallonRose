@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq5bwq5q7rtl5"]
+
+[ext_resource type="Script" path="res://Scenes/Ball/States/ball_state_held.gd" id="1_gdwuq"]
+
+[node name="BallStateHeld" type="Node"]
+script = ExtResource("1_gdwuq")

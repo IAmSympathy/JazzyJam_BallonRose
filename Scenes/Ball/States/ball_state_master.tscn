@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckrniin67w10h"]
+
+[ext_resource type="Script" uid="uid://b0jcvyhhouatn" path="res://Scenes/Ball/States/ball_state_master.gd" id="1_5rpoj"]
+
+[node name="BallStateMaster" type="Node"]
+script = ExtResource("1_5rpoj")
+metadata/_custom_type_script = "uid://bb52l8aqqc0oa"

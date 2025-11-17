@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://uhmdraiamtfw"]
+
+[ext_resource type="Script" uid="uid://c31p7cshfbiip" path="res://Placeables/Interactables/portal.gd" id="1_30x4u"]
+[ext_resource type="Texture2D" uid="uid://cmy1x1wu8dmqg" path="res://Ressources/Placeables/Interactables/Box_BG.png" id="2_p2crj"]
+[ext_resource type="Texture2D" uid="uid://24kdt8scspw6" path="res://Ressources/Placeables/Interactables/Box_FG.png" id="3_sgk74"]
+[ext_resource type="AudioStream" uid="uid://dm4622vvegec3" path="res://Ressources/Sons/Boîte_magique_portai.wav" id="4_n567t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30x4u"]
+size = Vector2(24, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2crj"]
+size = Vector2(25.558514, 56.79458)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgk74"]
+size = Vector2(20, 92)
+
+[node name="Portal" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_30x4u")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-27, 6)
+scale = Vector2(0.25, 0.2)
+
+[node name="BG" type="Sprite2D" parent="Node2D"]
+z_index = -50
+position = Vector2(-70, 40.000015)
+scale = Vector2(0.8955929, 1.1720104)
+texture = ExtResource("2_p2crj")
+
+[node name="FG" type="Sprite2D" parent="Node2D"]
+z_index = 20
+position = Vector2(79.99999, -19.999998)
+texture = ExtResource("3_sgk74")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_30x4u")
+
+[node name="Ceiling" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -50.999996)
+scale = Vector2(2.8170652, 0.31693164)
+shape = SubResource("RectangleShape2D_p2crj")
+
+[node name="Wall" type="CollisionShape2D" parent="."]
+position = Vector2(25, 4)
+shape = SubResource("RectangleShape2D_sgk74")
+
+[node name="Ceiling2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.9999981, 58)
+scale = Vector2(2.8170652, 0.31693164)
+shape = SubResource("RectangleShape2D_p2crj")
+
+[node name="EnterSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_n567t")

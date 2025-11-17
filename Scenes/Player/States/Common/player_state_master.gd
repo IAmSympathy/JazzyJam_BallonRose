@@ -3,9 +3,18 @@ class_name PlayerStateMaster
 
 func enter():
 	super.enter()
-	print('j\'entre')
 
-func update():
-	super.update()
-	print("ajhgdahdadad")
+
+func exit():
+	super.exit()
+
+func update(delta: float):
+	super.update(delta)
+	
+func handle_input(input : String, value : int, delta: float):
+	super.handle_input(input,value, delta)
+
+
+
+
 	
