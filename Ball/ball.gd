@@ -19,7 +19,6 @@ signal on_ball_hit
 ## ============================
 
 func _ready() -> void:
-	# Rien à initialiser pour l’instant
 	pass
 
 

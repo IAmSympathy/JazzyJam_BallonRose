@@ -13,12 +13,15 @@ var can_teleport : bool = true     # Empêche les téléportations en boucle inf
 # Appelé lorsque le portail est ajouté dans la scène
 func _ready() -> void:
 	# On connecte le signal de détection d’entrée dans l’Area2D
-	$Area2D.connect("body_entered", _on_portal_entered)
+	$TeleportArea.connect("body_entered", _on_portal_entered)
 
 
 ## ==========================================================
 ## --- TRANSFORMATION DE VÉLOCITÉ ENTRE DEUX PORTAILS -------
 ## ==========================================================
+
+func get_portal_forward(portal: Node2D) -> Vector2:
+	return Vector2.LEFT.rotated(portal.global_rotation)
 
 # Transforme la vélocité d’un objet qui entre dans un portail
 # en fonction de l’orientation relative entre l’entrée et la sortie.
@@ -29,12 +32,12 @@ func transform_velocity_between_portals(
 ) -> Vector2:
 
 	# Rotation de l’objet à l’entrée du portail
-	var angle_in  = entry_portal.global_rotation
+	var angle_in: Vector2  = get_portal_forward(entry_portal)
 	# Rotation de l’objet à la sortie du portail
-	var angle_out = exit_portal.global_rotation
+	var angle_out: Vector2 = get_portal_forward(exit_portal)
 
 	# Différence d’angle entre les deux portails
-	var relative_angle = angle_out - angle_in
+	var relative_angle: float = angle_in.angle_to(angle_out) 
 
 	# On retourne la vélocité ajustée
 	return velocity.rotated(relative_angle)
@@ -47,74 +50,61 @@ func transform_velocity_between_portals(
 
 # Appelé lorsqu’un objet entre dans le portail
 func _on_portal_entered(body: Node2D) -> void:
+	print("entrée")
 	$EnterSFX.play()   # Joue le son d’entrée
 
 	# Empêche l’autre portail d’immédiatement renvoyer l’objet
 	other_portal.can_teleport = false
 
 	# Lorsqu’un corps sort du portail de sortie, on réactive la téléportation
-	other_portal.get_node("Area2D").connect("body_exited", _on_other_portal_exited)
+	other_portal.get_node("TeleportArea").connect("body_exited", _on_other_portal_exited)
 
 	# Vérifie si ce portail est autorisé à téléporter
 	if can_teleport:
-
 		var target_pos := other_portal.global_position
-
-
 		## --------------------------------------
-		## --- CAS : CHARACTERBODY2D (Player) ---
+		## --- PLAYER ---
 		## --------------------------------------
-		if body is CharacterBody2D:
-			var cb := body as CharacterBody2D
-			
+		if body is CharacterBody2D:	
+		
 			# Transformation de la vélocité selon angle du portail
-			cb.velocity = transform_velocity_between_portals(
-				cb.velocity,
+			body.velocity = transform_velocity_between_portals(
+				body.velocity,
 				self,
 				other_portal
 			)
-
-			# Téléportation de la position
-			cb.global_position = target_pos
-
-			# On attend un frame physique pour éviter des bugs de slide
-			await get_tree().physics_frame
+			
+			# Téléportation via le PhysicsServer
+			body.global_transform.origin = target_pos + Vector2(0,-50)
+			
+			body.global_position = target_pos
+			
 			return
 
-
 		## --------------------------------------
-		## --- CAS : RIGIDBODY2D (balle) --------
+		## --- BALL --------
 		## --------------------------------------
 		if body is RigidBody2D:
-			var rb := body as RigidBody2D
-			
 			# Transformation de la vélocité
-			rb.linear_velocity = transform_velocity_between_portals(
-				rb.linear_velocity,
+			body.linear_velocity = transform_velocity_between_portals(
+				body.linear_velocity,
 				self,
 				other_portal
 			)
 
 			# On supprime l’angular velocity pour éviter une rotation infinie
-			rb.angular_velocity = 0
+			body.angular_velocity = 0
 
-			# Téléportation via le PhysicsServer (plus propre pour RB)
-			var t := rb.global_transform
-			t.origin = target_pos
+			# Téléportation via le PhysicsServer
+			body.global_transform.origin = target_pos
 
 			PhysicsServer2D.body_set_state(
-				rb.get_rid(),
+				body.get_rid(),
 				PhysicsServer2D.BODY_STATE_TRANSFORM,
-				t
+				body.global_transform
 			)
 
 			return
-
-
-		## --------------------------------------
-		## --- AUTRE Node2D ----------------------
-		## --------------------------------------
-		body.global_position = target_pos
 
 
 
@@ -125,4 +115,3 @@ func _on_portal_entered(body: Node2D) -> void:
 # Appelé lorsque le corps sort du portail de sortie
 func _on_other_portal_exited(_body: Node2D) -> void:
 	other_portal.can_teleport = true   # Réactive la téléportation
-	print("balle sortie")

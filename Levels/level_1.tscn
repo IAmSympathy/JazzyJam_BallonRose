@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://cvg833f18smf6"]
+[gd_scene load_steps=4 format=4 uid="uid://cvg833f18smf6"]
 
 [ext_resource type="PackedScene" uid="uid://whdfqfbehvc5" path="res://Levels/Common/level_master.tscn" id="1_n0qsc"]
 [ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/TT_Default.tres" id="2_dilhk"]
+[ext_resource type="PackedScene" uid="uid://uhmdraiamtfw" path="res://Placeables/Interactables/portal.tscn" id="3_3mhv4"]
 
 [node name="Level1" instance=ExtResource("1_n0qsc")]
 level_name = "Tutorial"
@@ -43,3 +44,13 @@ vertical_alignment = 1
 
 [node name="Background" parent="." index="8"]
 position = Vector2(1.891, -32)
+
+[node name="Portal" parent="." index="10" node_paths=PackedStringArray("other_portal") instance=ExtResource("3_3mhv4")]
+position = Vector2(-26.999996, 210)
+rotation = -4.519757
+other_portal = NodePath("../Portal2")
+
+[node name="Portal2" parent="." index="11" node_paths=PackedStringArray("other_portal") instance=ExtResource("3_3mhv4")]
+position = Vector2(-163.99994, -82.99997)
+rotation = -4.520403
+other_portal = NodePath("../Portal")
