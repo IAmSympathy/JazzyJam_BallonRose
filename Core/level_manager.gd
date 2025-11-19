@@ -46,8 +46,8 @@ func start_level(level: LevelMaster):
 
 	ball = ball_scene.instantiate() as RigidBody2D
 	var ball_holder := player.get_node("BallHolder")
-	ball_holder.add_child(ball)
-	ball.global_position = ball_holder.global_position
+	add_child(ball)
+	ball.global_position = player.global_position + Vector2(50, 50)
 	ball.connect("on_death", on_player_death)
 	
 	player.position = current_level.get_node("Start").position + Vector2(0, -32)

@@ -1,128 +1,188 @@
 extends CharacterBody2D
+class_name Player
 
-@onready var fleche: Sprite2D = $Fleche
+## ============================
+## --- VARIABLES & ONREADY ---
+## ============================
+
+# Animation Player du joueur
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+# Vitesse de base
+@export var base_speed: float = 200.0
 
-
+# Force minimale/maximale de tir
 @export var minThrowStrength: float = 100
 @export var maxThrowStrength: float = 600
 
+# Référence de la balle tenue (ou null)
+var ballRef: Ball = null
+
+# Charge actuelle de tir
+var chargeStrength: float = 0.0
+
+# Gravité extraite des settings
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+# Signal lorsqu’on sort de l'écran
 signal on_death 
 
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var base_speed: float = 200.0
-var ballRef: RigidBody2D = null
-var chargeStrength: float = 0.0
+## ============================
+## ----------- READY ----------
+## ============================
 
 func _ready() -> void:
-	$PickupArea.connect("body_entered", _on_area_2d_body_entered)
-	fleche.visible = false
+	# Connexions des zones
+	$PickupArea.connect("body_entered", _on_pickuparea_body_entered)
 	$Hitbox.connect("body_entered", _on_hitbox_body_entered)
 
+	# Flèche de visée invisible au début
+	$Arrow.visible = false
 
+	# Initialise et active le système de states
+	$StateManager.initiate()
+
+
+## ============================
+## ---- PHYSICS PROCESS -------
+## ============================
 
 func _physics_process(delta: float) -> void:
+	# Applique la gravité
 	velocity.y += gravity * delta
-	updateFacingDirection()
-	move_and_slide()
-	$StateManager.call_active_state_update(delta)
-	#MoveX
-	if Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Right") or Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
-		$StateManager.handle_state_input(E_Inputs.move_x, Input.get_axis("Left","Right"), delta)
-
-	if Input.is_action_just_pressed("Jump"):
-		$StateManager.handle_state_input(E_Inputs.jump, 1, delta)
-	if Input.is_action_just_released("Jump"):
-		$StateManager.handle_state_input(E_Inputs.jump, 0, delta)
-
-	if $BallHolder.get_child_count() > 0:
-		ballRef = $BallHolder.get_child(0) as RigidBody2D
 	
-	if Input.is_action_pressed("ThrowBall") and ballRef != null:
-		global_position.distance_to(get_global_mouse_position())
-		chargeStrength = clamp(remap(global_position.distance_to(get_global_mouse_position()), 0, 200, minThrowStrength, maxThrowStrength), minThrowStrength, maxThrowStrength)
-		
-		fleche.visible = true
-		fleche.rotation = (get_global_mouse_position() - global_position).angle()
-		fleche.scale = Vector2(-chargeStrength / maxThrowStrength, 1 )
+	# Déplacements Godot
+	move_and_slide()
 
+	# Update du state actif
+	$StateManager.call_active_state_update(delta)
+
+	# Inputs joueur
+	_handle_inputs(delta)
+
+	# Mort si on tombe en bas de l'écran
 	if position.y > 380:
 		on_death.emit()
 
-	if Input.is_action_just_released("ThrowBall") and ballRef != null:
-		throwBall(ballRef, chargeStrength) 
-		fleche.visible = false
-		print("Thrown with strength: " + str(chargeStrength))
 
-	ballRef = null
+## ============================
+## ----------- INPUTS ---------
+## ============================
 
-#Sert à être dans dans des tween de states par exemple
-func set_velocity_x(value : float) -> void:
-	velocity.x = value
+func _handle_inputs(delta: float) -> void:
+	## --- Déplacements Gauche/Droite --- ##
+	if Input.is_action_pressed("Left") or Input.is_action_pressed("Right") \
+	or Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
+		var axis := Input.get_axis("Left", "Right")
+		$StateManager.handle_state_input(E_Inputs.move_x, axis, delta)
 
-func _on_area_2d_body_entered(body: RigidBody2D):
-	attachBall(body)
+	## --- Saut --- ##
+	if Input.is_action_just_pressed("Jump"):
+		$StateManager.handle_state_input(E_Inputs.jump, 1, delta)
 
+	if Input.is_action_just_released("Jump"):
+		$StateManager.handle_state_input(E_Inputs.jump, 0, delta)
 
+	## --- Lancer de balle (charger) --- ##
+	if Input.is_action_pressed("Throw") and ballRef != null:
+		var dist := global_position.distance_to(get_global_mouse_position())
+		chargeStrength = clamp(
+			remap(dist, 0, 200, minThrowStrength, maxThrowStrength),
+			minThrowStrength,
+			maxThrowStrength
+		)
+		update_throw_arrow()
 
-func throwBall(ball:RigidBody2D, strength:float):
-	ball.connect( "can_be_picked_up",enablePickUpBall)
-	#togglePickUpBall(true)	#$Area2D.connect("body_entered", _on_area_2d_body_entered)
-	enablePickUpBall()
-	ball.get_parent().remove_child(ball)
-	get_parent().add_child(ball)
-	ball.global_position = $BallHolder.global_position
-	ball.get_state_manager().handle_state_transition("Free")
-
-	
-	var direction = (get_global_mouse_position() - ball.global_position).normalized()
-	ball.apply_impulse(-direction * strength)
-	
-
-
-
-
-func attachBall(ball: RigidBody2D) -> void:
-	var balle = ball as Ball
-
-	var tween := create_tween()
-	tween.tween_property(ball,"global_position", $BallHolder.global_position,0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT) #Un tween pour faire une transition smooth vers le ballHolder du joueur
-	await tween.finished
-	print("Zone penetrée")
-	ball.ballfreeze()
-	#togglePickUpBall(false)
-	disablePickUpBall()	#$Area2D.disconnect("body_entered", _on_area_2d_body_entered)
-	ball.get_parent().remove_child(ball)
-	$BallHolder.add_child(ball)
-	ball.global_position = $BallHolder.global_position
-	ball.get_state_manager().handle_state_transition("Held")
+	## --- Relâcher et lancer --- ##
+	if Input.is_action_just_released("Throw") and ballRef != null:
+		throw_ball(ballRef, chargeStrength)
+		$Arrow.visible = false
 
 
-# func togglePickUpBall(value: bool) -> void:
-# 	$PickupArea.monitoring = value
-func enablePickUpBall() -> void:
-	$PickupArea.monitoring = true
-	print("Pick Up Enabled")
+## ============================
+## ---- EVENTS ---
+## ============================
 
-	
-func disablePickUpBall() -> void:
-	$PickupArea.monitoring = false
-	print("Pick Up Disabled")
-
-func updateFacingDirection() -> void:
-	var dir := Input.get_axis("Left", "Right")
-	if dir != 0:
-		# Flip le sprite
-		$Sprites.scale.x = 0.25 * sign(dir)
-		
-		# Place le BallHolder du bon côté du joueur
-		var holder := $BallHolder
-		holder.position.x = abs(holder.position.x) * sign(dir)
-		fleche.global_position.x = holder.global_position.x
-
+func _on_pickuparea_body_entered(body: Ball):
+	ballRef = body
+	grab_ball(body)
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	on_death.emit()
+	
+func _on_throw_cooldown_timeout() -> void:
+	enable_ball_pickup()
+	
+
+
+
+## ============================
+## ---- MÉCANIQUES DE BALLE ---
+## ============================
+
+func grab_ball(ball: Ball) -> void:
+	print("grab")
+	disable_ball_pickup()
+
+	# Gèle la balle et la déplace vers le joueur
+	ball.freeze_physics()
+	ball.reparent($BallHolder)
+	ball.get_state_manager().handle_state_transition("Held")
+
+	var grab_tween := create_tween()
+	grab_tween.tween_property(
+		ball,
+		"position",
+		Vector2.ZERO,
+		0.1
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	await grab_tween.finished
+
+
+func throw_ball(ball: Ball, strength: float):
+	# Détache la balle
+	ball.reparent(get_parent())
+
+	ball.global_position = $BallHolder.global_position
+	ball.get_state_manager().handle_state_transition("Free")
+	$ThrowCooldown.start()
+
+	# Direction du tir
+	var throw_dir: Vector2 = (get_global_mouse_position() - ball.global_position).normalized()
+	ball.apply_impulse(-throw_dir * strength)
+
+
+func update_throw_arrow():
+	$Arrow.visible = true
+	$Arrow.rotation = (get_global_mouse_position() - global_position).angle()
+	$Arrow.scale = Vector2(-chargeStrength / maxThrowStrength, 1)
+
+
+## ============================
+## - ACTIVER / DÉSACTIVER PICKUP -
+## ============================
+
+func enable_ball_pickup() -> void:
+	$PickupArea.connect("body_entered", _on_pickuparea_body_entered)
+	
+	#Grab automatiquement la balle si elle overlap déjà
+	for body in $PickupArea.get_overlapping_bodies():
+		if body is Ball:
+			grab_ball(body)
+			break
+
+
+func disable_ball_pickup() -> void:
+	$PickupArea.disconnect("body_entered", _on_pickuparea_body_entered)
+
+
+## ============================
+## -- AUTRES SETTERS -
+## ============================
+
+# Utilisé par certains states (tweens, etc.)
+func set_velocity_x(value: float) -> void:
+	velocity.x = value

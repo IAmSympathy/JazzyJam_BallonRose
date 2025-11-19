@@ -20,9 +20,6 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g0yx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_06tpx"]
-radius = 141.05673
-
 [sub_resource type="Animation" id="Animation_dey5f"]
 length = 0.001
 tracks/0/type = "value"
@@ -1028,6 +1025,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g0yx"]
 size = Vector2(89.05887, 125.76757)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_06tpx"]
+radius = 141.05673
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 2)
 scale = Vector2(0.5, 0.5)
@@ -1069,9 +1069,9 @@ state_manager = NodePath("../../StateManager")
 state_name = "Fall"
 
 [node name="BallHolder" type="Marker2D" parent="."]
-position = Vector2(90, -124)
+position = Vector2(0, -124)
 
-[node name="Fleche" type="Sprite2D" parent="."]
+[node name="Arrow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.32941177)
 position = Vector2(88, -122)
 scale = Vector2(0.05, 0.05)
@@ -1120,16 +1120,6 @@ position = Vector2(22.107185, -112.19618)
 rotation = 3.0457869
 texture = ExtResource("11_ks1b7")
 
-[node name="PickupArea" type="Area2D" parent="."]
-scale = Vector2(0.94952863, 0.55463946)
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-position = Vector2(17, 10)
-scale = Vector2(1.0785509, 0.7676709)
-shape = SubResource("CircleShape2D_06tpx")
-debug_color = Color(0.97092205, 0, 0.454674, 0.41960785)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_dey5f")
@@ -1146,6 +1136,22 @@ position = Vector2(19, -7.2559853)
 scale = Vector2(1.0105674, 1.1568007)
 shape = SubResource("RectangleShape2D_7g0yx")
 
+[node name="PickupArea" type="Area2D" parent="."]
+scale = Vector2(0.9043609, 1.2526983)
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(17, 10)
+scale = Vector2(1.0785509, 0.7676709)
+shape = SubResource("CircleShape2D_06tpx")
+debug_color = Color(0.97092205, 0, 0.454674, 0.41960785)
+
 [node name="BruitsDePas" type="AudioStreamPlayer2D" parent="."]
 pitch_scale = 0.01
 script = ExtResource("16_r5xpd")
+
+[node name="ThrowCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="ThrowCooldown" to="." method="_on_throw_cooldown_timeout"]

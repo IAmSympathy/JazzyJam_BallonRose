@@ -1,32 +1,55 @@
 extends BallStateMaster
 class_name BallStateFree
 
-signal can_be_picked_up
+@export var base_velocity: Vector2 = Vector2(0, 500)
+
+## ============================
+## ----------- READY ----------
+## ============================
+
+func _ready() -> void:
+	ball.linear_velocity = base_velocity
 
 
-#Est appellé lorsqu'on entre dans le state
+## ============================
+## ----------- ENTER ----------
+## ============================
+
+# Appelé lorsque la balle entre dans ce state (Free)
 func enter():
-	super.enter()
-	print("Ball is Free")
-	state_manager.possessed_node.freeze = false
-	state_manager.possessed_node.gravity_scale = 1.0   
+	super.enter()  # Appelle la logique de base du parent BallStateMaster
 
-	
+	# Débloque la physique : la balle peut retomber normalement
+	ball.freeze = false
 
-#Est appellé lorsqu'on sort du state
-func exit():
-	super.exit()
+	# Rétablit la gravité pour qu'elle tombe
+	ball.gravity_scale = 1.0
 
-#Est appellé lorsqu'un input est détecté
-func handle_input(input : String, value : int, delta: float):
-	super.handle_input(input,value, delta)
-	
-#Est appellé à chaque frame
+
+## ============================
+## --------- INPUTS -----------
+## ============================
+
+# Appelé lorsqu’un input est détecté
+# Ici, la balle n’a pas vraiment d’input à gérer
+func handle_input(input: String, value: int, delta: float):
+	super.handle_input(input, value, delta)
+
+
+## ============================
+## ---------- UPDATE ----------
+## ============================
+
+# Appelé à chaque frame (souvent depuis _physics_process)
 func update(delta: float):
 	super.update(delta)
 
-	if state_manager.possessed_node.is_on_floor():
-		can_be_picked_up.emit()
-		print("Can be picked up")
 
+## ============================
+## ----------- EXIT -----------
+## ============================
 
+# Appelé lorsque la balle quitte ce state
+func exit():
+	super.exit()
+	# Pour l'instant, aucune action particulière à faire ici
