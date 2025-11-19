@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 E_Inputs="*res://Core/StateMachine/e_inputs.gd"
 E_PlayerStates="*res://Core/StateMachine/e_player_states.gd"
 E_BallStates="*res://Core/StateMachine/e_ball_states.gd"
+Global="*res://Core/global.gd"
 
 [display]
 

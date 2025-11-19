@@ -9,7 +9,7 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Vitesse de base
-@export var base_speed: float = 200.0
+@export var base_speed: float = 400.0
 
 # Force minimale/maximale de tir
 @export var minThrowStrength: float = 100
@@ -24,6 +24,9 @@ var arrow_x_scale_factor: float = 0.8
 
 # Gravité extraite des settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+#status de vie de la balle
+var is_dead: bool = false
 
 # Signal lorsqu’on sort de l'écran
 signal on_death 
@@ -52,26 +55,27 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Applique la gravité
 	velocity.y += gravity * delta
-	
-	# Déplacements Godot
-	move_and_slide()
 
 	# Update du state actif
 	$StateManager.call_active_state_update(delta)
-
+	
 	# Inputs joueur
-	_handle_inputs(delta)
-
+	handle_inputs(delta)
+	
 	# Mort si on tombe en bas de l'écran
-	if position.y > 380:
+	if position.y > Global.death_y and not is_dead:
+		is_dead = true
 		on_death.emit()
+		
+	# Déplacements Godot
+	move_and_slide()
 
 
 ## ============================
 ## ----------- INPUTS ---------
 ## ============================
 
-func _handle_inputs(delta: float) -> void:
+func handle_inputs(delta: float) -> void:
 	## --- Déplacements Gauche/Droite --- ##
 	if Input.is_action_pressed("Left") or Input.is_action_pressed("Right") \
 	or Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):

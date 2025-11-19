@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Si la balle tombe sous une certaine limite,
 	# on déclenche sa mort
-	if position.y > 380:
+	if position.y > Global.death_y:
 		die()
 
 ## ============================
@@ -51,7 +51,8 @@ func _on_body_hit(body: Node2D) -> void:
 
 
 func _on_pop_sfx_finished() -> void:
-	# Le son "pop" est terminé → on supprime la balle
+# Le son "pop" est terminé → on supprime la balle
+	on_death.emit()
 	queue_free()
 
 
@@ -68,12 +69,7 @@ func get_state_manager() -> StateManager:
 ## ============================
 
 func die() -> void:
-	# 1) Émission du signal de mort
-	on_death.emit()
 	is_dead = true
-
-	# 2) Jouer le son d’explosion/pop
-	#    (à la fin du son, la balle sera free dans _on_pop_sfx_finished)
-	$PopSFX.play()
 	
+	$PopSFX.play()
 	$Sprite2D.visible = false

@@ -21,7 +21,7 @@ func handle_input(input: String, value: int, delta: float):
 		state_manager.handle_state_transition(E_PlayerStates.idle)
 
 	# Si on saute → Jump
-	if input == E_Inputs.jump:
+	if input == E_Inputs.jump and value == 1:
 		state_manager.handle_state_transition(E_PlayerStates.jump)
 
 
@@ -33,12 +33,14 @@ func update(delta: float):
 
 	# Applique le mouvement horizontal
 	player.velocity.x = Input.get_axis("Left", "Right") * player.base_speed
-
-	# On gère la physique ici parce que ce state override le déplacement
-	player.move_and_slide()
-
+	
 	# Met à jour la direction visuelle du joueur
 	update_facing_direction()
+	
+	#Si le joueur tombe, passe au state fall
+	if not player.is_on_floor():
+		print("Fall")
+		state_manager.handle_state_transition(E_PlayerStates.fall)
 
 
 ## ============================

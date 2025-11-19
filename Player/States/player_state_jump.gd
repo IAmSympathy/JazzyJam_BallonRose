@@ -1,7 +1,7 @@
 extends PlayerStateMaster
 class_name PlayerStateJump
 
-@export var jump_velocity: float = 350.0
+@export var jump_velocity: float = 400.0
 @export var move_speed : float = 20
 @export var duration_decelerate: float = 0.2
 
@@ -67,9 +67,11 @@ func update(delta: float):
 
 	# Empêche d’aller plus vite que la vitesse maximale
 	player.velocity.x = clamp(player.velocity.x, -player.base_speed, player.base_speed)
-
-	# Applique le mouvement avec la nouvelle velocity
-	player.move_and_slide()
+	
+	# Vérifie si le joueur touche le sol
+	if player.is_on_floor():
+		$LandSFX.play()
+		state_manager.handle_state_transition(E_PlayerStates.idle)
 
 
 ## ============================

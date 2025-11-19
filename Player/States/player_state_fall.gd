@@ -1,7 +1,7 @@
 extends PlayerStateMaster
 class_name PlayerStateFall
 
-@export var move_speed : float = 5
+@export var move_speed : float = 20
 @export var target_fall_gravity: float = 5000.0
 @export var duration_to_terminal_velocity: float = 0.4
 @export var duration_decelerate: float = 0.2
@@ -62,9 +62,6 @@ func update(delta: float):
 
 	# Limite la vitesse horizontale à la vitesse maximale du joueur
 	player.velocity.x = clamp(player.velocity.x, -player.base_speed, player.base_speed)
-
-	# Applique la velocity
-	player.move_and_slide()
 
 	# Vérifie si le joueur touche le sol
 	if player.is_on_floor():

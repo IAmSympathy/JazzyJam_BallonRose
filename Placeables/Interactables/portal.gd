@@ -16,17 +16,6 @@ func _ready() -> void:
 	$Area2D.connect("body_entered", _on_portal_entered)
 
 
-
-## ============================
-## ---------- PROCESS ---------
-## ============================
-
-# Ici rien à faire pour le moment
-func _process(delta: float) -> void:
-	pass
-
-
-
 ## ==========================================================
 ## --- TRANSFORMATION DE VÉLOCITÉ ENTRE DEUX PORTAILS -------
 ## ==========================================================
@@ -70,7 +59,6 @@ func _on_portal_entered(body: Node2D) -> void:
 	if can_teleport:
 
 		var target_pos := other_portal.global_position
-		var target_rot := other_portal.global_rotation
 
 
 		## --------------------------------------
@@ -135,6 +123,6 @@ func _on_portal_entered(body: Node2D) -> void:
 ## ============================
 
 # Appelé lorsque le corps sort du portail de sortie
-func _on_other_portal_exited(body: Node2D) -> void:
+func _on_other_portal_exited(_body: Node2D) -> void:
 	other_portal.can_teleport = true   # Réactive la téléportation
 	print("balle sortie")

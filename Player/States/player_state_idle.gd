@@ -27,7 +27,7 @@ func handle_input(input: String, value: int, delta: float):
 		state_manager.handle_state_transition(E_PlayerStates.run)
 
 	# Si le joueur saute -> passer à Jump
-	if input == E_Inputs.jump:
+	if input == E_Inputs.jump and value == 1:
 		state_manager.handle_state_transition(E_PlayerStates.jump)
 
 
@@ -36,6 +36,10 @@ func handle_input(input: String, value: int, delta: float):
 ## ============================
 func update(delta: float):
 	super.update(delta)
+	
+	#Si le joueur tombe, passe au state fall
+	if !player.is_on_floor():
+		state_manager.handle_state_transition(E_PlayerStates.fall)
 
 
 ## ============================

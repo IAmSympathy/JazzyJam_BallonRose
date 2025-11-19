@@ -13,10 +13,10 @@ func exit():
 	pass
 	
 #Est appelé à chaque frame
-func handle_input(input : String, value : int, delta: float):
+func handle_input(_input : String, _value : int, _delta: float):
 	pass
 	
 #Est appellé à chaque frame
-func update(delta: float):
+func update(_delta: float):
 	pass
 	
