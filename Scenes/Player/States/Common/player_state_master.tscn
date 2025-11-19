@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccjxanburt6we"]
-
-[ext_resource type="Script" uid="uid://dve3fa076rhti" path="res://Scenes/Player/States/Common/player_state_master.gd" id="1_3g2mh"]
-
-[node name="PlayerStateMaster" type="Node"]
-script = ExtResource("1_3g2mh")
-metadata/_custom_type_script = "uid://we1rdbcsa7vv"

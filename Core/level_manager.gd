@@ -26,8 +26,8 @@ var gamemode : Gamemode
 @export var curren_level_index: int = 0
 
 # Scenes préchargées pour instancier player et balle
-var player_scene: PackedScene = preload("res://Scenes/Player/player.tscn")
-var ball_scene: PackedScene = preload("res://Scenes/Ball/ball.tscn")
+var player_scene: PackedScene = preload("res://Player/player.tscn")
+var ball_scene: PackedScene = preload("res://Ball/ball.tscn")
 
 # Signaux
 signal on_level_completed
@@ -127,6 +127,6 @@ func restart_level():
 
 func toggle_music(enable: bool):
 	if enable:
-		$BMGPlayer.play()
+		$BGMPlayer.play()
 	else:
-		$BMGPlayer.stop()
+		$BGMPlayer.stop()

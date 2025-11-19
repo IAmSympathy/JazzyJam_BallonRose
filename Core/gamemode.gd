@@ -9,7 +9,6 @@ var end_screen_scene: PackedScene = preload("res://UI/end_screen.tscn")
 	
 # Référence au joueur dans la scène
 var player: CharacterBody2D
-
 var has_player_won: bool = false
 
 # Signaux pour indiquer que les animations de transition sont terminées
@@ -22,8 +21,6 @@ signal transition_show_finished
 ## ============================
 
 func _ready() -> void:
-	# Récupère le joueur dans le LevelManager
-	player = $LevelManager.get_node("Player")
 	$LevelManager.gamemode = self
 
 

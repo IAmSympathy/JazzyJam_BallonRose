@@ -1,14 +1,16 @@
 [gd_scene load_steps=16 format=3 uid="uid://whdfqfbehvc5"]
 
 [ext_resource type="Script" uid="uid://d3q7krnumntwu" path="res://Levels/Common/level_master.gd" id="1_l2i54"]
-[ext_resource type="Texture2D" uid="uid://w04d1s6erum1" path="res://Ressources/Environnment/Test/walls.png" id="2_w25xf"]
-[ext_resource type="Texture2D" uid="uid://cy6khr38mhfvw" path="res://Ressources/Environnment/Japan/tileset.png" id="3_t1k23"]
-[ext_resource type="PackedScene" uid="uid://cv785vkdm7oie" path="res://Ressources/Stars/animated_blue_star.tscn" id="4_0i56b"]
-[ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="4_xdwi4"]
-[ext_resource type="AudioStream" uid="uid://b4ep2aadfobdm" path="res://Ressources/Sons/Étoile_bleue.wav" id="6_rjx7m"]
+[ext_resource type="Texture2D" uid="uid://cy6khr38mhfvw" path="res://Ressources/Environnment/China/TS_China.png" id="3_t1k23"]
+[ext_resource type="PackedScene" uid="uid://cv785vkdm7oie" path="res://Ressources/Placeables/Interactables/Stars/blue_star.tscn" id="4_0i56b"]
+[ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/China/SPR_China_BG.png" id="4_xdwi4"]
+[ext_resource type="AudioStream" uid="uid://b4ep2aadfobdm" path="res://Ressources/Placeables/Interactables/Stars/Sounds/SFX_Star_Blue_Collect.wav" id="6_rjx7m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0i56b"]
+load_path = "res://.godot/imported/walls.png-9222dba985ff84fd8be2848c73a53759.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gpbr1"]
-texture = ExtResource("2_w25xf")
+texture = SubResource("CompressedTexture2D_0i56b")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

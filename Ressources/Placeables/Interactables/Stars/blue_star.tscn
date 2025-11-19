@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv785vkdm7oie"]
+
+[ext_resource type="Texture2D" uid="uid://drkscwc4b3ju0" path="res://Ressources/Placeables/Interactables/Stars/Sprites/SPR_Star_Blue.png" id="1_7cqyh"]
+
+[sub_resource type="Animation" id="Animation_7cqyh"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 31), Vector2(1, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_as7jn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as7jn"]
+_data = {
+&"Idle": SubResource("Animation_7cqyh"),
+&"RESET": SubResource("Animation_as7jn")
+}
+
+[node name="BlueStar" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_as7jn")
+}
+autoplay = "Idle"
+speed_scale = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7cqyh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-2.5880802, -8.593353)
+lifetime = 0.4
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 27.39
+spread = 77.65
+gravity = Vector2(0, 150)

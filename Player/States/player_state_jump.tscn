@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://desd8yaovp2jp"]
+
+[ext_resource type="Script" uid="uid://b2i2k78y8legc" path="res://Player/States/player_state_jump.gd" id="1_3nhpw"]
+[ext_resource type="AudioStream" uid="uid://d17ucoud1m8pr" path="res://Ressources/Player/Sounds/SFX_Player_Jump.wav" id="2_5ejip"]
+
+[node name="PlayerStateJump" type="Node"]
+script = ExtResource("1_3nhpw")
+state_name = "Jump"
+metadata/_custom_type_script = "uid://dve3fa076rhti"
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5ejip")
+volume_db = -15.0

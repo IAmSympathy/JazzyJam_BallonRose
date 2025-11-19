@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://1hyxggufn8in"]
+
+[ext_resource type="Script" uid="uid://b2hiabe6vcmu7" path="res://Player/States/player_state_fall.gd" id="1_1v7t5"]
+[ext_resource type="AudioStream" uid="uid://budy0div6dkos" path="res://Ressources/Player/Sounds/SFX_Player_Land.wav" id="2_rqnq7"]
+
+[node name="PlayerStateFall" type="Node"]
+script = ExtResource("1_1v7t5")
+state_name = "Fall"
+metadata/_custom_type_script = "uid://dve3fa076rhti"
+
+[node name="LandSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_rqnq7")

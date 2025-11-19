@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://dhbxsv2cduxq4"]
 
 [ext_resource type="PackedScene" uid="uid://whdfqfbehvc5" path="res://Levels/Common/level_master.tscn" id="1_ll1bl"]
-[ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/text_theme.tres" id="3_arsda"]
+[ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/TT_Default.tres" id="3_arsda"]
 
 [node name="Level2" instance=ExtResource("1_ll1bl")]
 level_name = "Jumpy"

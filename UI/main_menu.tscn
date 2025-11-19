@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://ke0n4uqj7qxa"]
 
 [ext_resource type="Script" uid="uid://fmqpti2smmjb" path="res://UI/main_menu.gd" id="1_4cwpn"]
-[ext_resource type="Texture2D" uid="uid://cecrqkstdfku3" path="res://Ressources/Player/Sprites/Animation/Te╠éte.png" id="1_tk8dj"]
-[ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/text_theme.tres" id="2_d8nwk"]
-[ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="2_f40uw"]
-[ext_resource type="Texture2D" uid="uid://ci1ij516f2wle" path="res://Ressources/UI/gamejam.jpg" id="3_d8nwk"]
-[ext_resource type="AudioStream" uid="uid://bterset7mhpfs" path="res://Ressources/Musique/Title Screen.wav" id="6_8ctay"]
-[ext_resource type="AudioStream" uid="uid://dmrhudg25fr80" path="res://Ressources/Sons/ClickStart(modifié).wav" id="7_ev3b6"]
-[ext_resource type="AudioStream" uid="uid://bj21elijjhykc" path="res://Ressources/Sons/Hoover1.wav" id="8_2mudq"]
-[ext_resource type="AudioStream" uid="uid://b8adaesfwi0ha" path="res://Ressources/Sons/Hoover2.wav" id="9_cafmx"]
+[ext_resource type="Texture2D" uid="uid://cecrqkstdfku3" path="res://Ressources/Player/Sprites/Animation/SPR_Player_Head.png" id="1_tk8dj"]
+[ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/TT_Default.tres" id="2_d8nwk"]
+[ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/China/SPR_China_BG.png" id="2_f40uw"]
+[ext_resource type="Texture2D" uid="uid://ci1ij516f2wle" path="res://Ressources/UI/Textures/gamejam.jpg" id="3_d8nwk"]
+[ext_resource type="AudioStream" uid="uid://bterset7mhpfs" path="res://Ressources/UI/BGM_Menu.wav" id="6_8ctay"]
+[ext_resource type="AudioStream" uid="uid://blj0k4vc5wlw" path="res://Ressources/UI/Sounds/SFX_UI_StartGame.wav" id="7_ev3b6"]
+[ext_resource type="AudioStream" uid="uid://bj21elijjhykc" path="res://Ressources/UI/Sounds/SFX_UI_Hover_01.wav" id="8_2mudq"]
+[ext_resource type="AudioStream" uid="uid://b8adaesfwi0ha" path="res://Ressources/UI/Sounds/SFX_UI_Hover_02.wav" id="9_cafmx"]
 
 [sub_resource type="Gradient" id="Gradient_4cwpn"]
 colors = PackedColorArray(0, 0, 0, 0.39215687, 0, 0, 0, 0.39215687)

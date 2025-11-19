@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://cvg833f18smf6"]
 
 [ext_resource type="PackedScene" uid="uid://whdfqfbehvc5" path="res://Levels/Common/level_master.tscn" id="1_n0qsc"]
-[ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/text_theme.tres" id="2_dilhk"]
+[ext_resource type="Theme" uid="uid://ca8544mj1jbwa" path="res://UI/TT_Default.tres" id="2_dilhk"]
 
 [node name="Level1" instance=ExtResource("1_n0qsc")]
 level_name = "Tutorial"
