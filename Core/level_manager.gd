@@ -23,7 +23,7 @@ var ball: RigidBody2D
 var gamemode : Gamemode
 
 # Index du niveau courant
-var curren_level_index: int = 1
+@export var curren_level_index: int = 0
 
 # Scenes préchargées pour instancier player et balle
 var player_scene: PackedScene = preload("res://Scenes/Player/player.tscn")
@@ -33,6 +33,7 @@ var ball_scene: PackedScene = preload("res://Scenes/Ball/ball.tscn")
 signal on_level_completed
 signal on_game_completed
 signal on_lose
+signal on_player_collect_star
 
 
 ## ============================
@@ -54,6 +55,8 @@ func on_level_end_reached() -> void:
 	current_level.disconnect("on_end_reached", on_level_end_reached)
 	on_level_completed.emit()
 
+func on_star_collected():
+	on_player_collect_star.emit()
 
 # Callback lorsque le joueur meurt
 func on_player_death():
@@ -86,6 +89,7 @@ func start_level(index: int):
 
 	# Connecte le signal de fin de niveau
 	current_level.connect("on_end_reached", on_level_end_reached)
+	current_level.connect("on_star_collected", on_star_collected)
 	
 	gamemode.play_transition("show")
 
@@ -93,10 +97,10 @@ func start_level(index: int):
 # Passe au niveau suivant
 func next_level():
 	player.queue_free()
-	ball.queue_free()
+	if ball != null:
+		ball.queue_free()
 	current_level.queue_free()
 	curren_level_index += 1
-
 	# Si il reste des niveaux, on démarre le suivant
 	if curren_level_index < level_list.size():
 		start_level(curren_level_index)

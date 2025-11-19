@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dk55py8pyi8qk"]
+[gd_scene load_steps=11 format=3 uid="uid://dk55py8pyi8qk"]
 
 [ext_resource type="Script" uid="uid://71espji6khq" path="res://Core/gamemode.gd" id="1_h8j6w"]
 [ext_resource type="PackedScene" uid="uid://y0hcsfqt30h" path="res://Core/level_manager.tscn" id="1_l7bdk"]
 [ext_resource type="AudioStream" uid="uid://bg1avd6n0yt61" path="res://Ressources/Sons/Stinger_Lose.wav" id="4_ehb2p"]
 [ext_resource type="Texture2D" uid="uid://dbw2nueg7e4my" path="res://Ressources/UI/Level_Transition.png" id="4_qlrv1"]
-[ext_resource type="AudioStream" uid="uid://cwl7nd8mpdudc" path="res://Ressources/Sons/Stinger_Win.wav" id="5_ehb2p"]
 
 [sub_resource type="Gradient" id="Gradient_qlrv1"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -71,6 +70,8 @@ script = ExtResource("1_h8j6w")
 
 [node name="LevelManager" parent="." instance=ExtResource("1_l7bdk")]
 z_index = -10
+position = Vector2(-3, 0)
+curren_level_index = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -124,11 +125,8 @@ libraries = {
 [node name="LoseSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ehb2p")
 
-[node name="WinSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_ehb2p")
-
 [connection signal="on_game_completed" from="LevelManager" to="." method="_on_level_manager_on_game_completed"]
 [connection signal="on_level_completed" from="LevelManager" to="." method="_on_level_manager_on_level_completed"]
 [connection signal="on_lose" from="LevelManager" to="." method="_on_level_manager_on_lose"]
+[connection signal="on_player_collect_star" from="LevelManager" to="." method="_on_level_manager_on_player_collect_star"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="finished" from="WinSFX" to="." method="_on_win_sfx_finished"]

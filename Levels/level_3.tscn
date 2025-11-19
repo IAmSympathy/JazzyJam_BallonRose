@@ -9,10 +9,13 @@ level_name = "Careful!"
 [node name="TM_Main" parent="." index="1"]
 tile_map_data = PackedByteArray("AAAGAAAAAQAFAAAAAAAHAAAAAQAFAAAAAAAIAAAAAQAGAAAAAAAFAAAAAQAFAAAAAAADAAAAAQAEAAAAAAAEAAAAAQAFAAAAAAD9/wAAAQAEAAAAAAD+/wAAAQAFAAAAAAD//wAAAQAGAAAAAAA=")
 
-[node name="Start" parent="." index="3"]
-position = Vector2(511, -61)
+[node name="PlayerStart" parent="." index="3"]
+position = Vector2(488, -23)
 
-[node name="End" parent="." index="4"]
+[node name="BallStart" parent="." index="4"]
+position = Vector2(401, -5)
+
+[node name="End" parent="." index="5"]
 position = Vector2(-500, -72)
 
 [node name="Spikes" parent="." index="6" instance=ExtResource("2_ej5lj")]

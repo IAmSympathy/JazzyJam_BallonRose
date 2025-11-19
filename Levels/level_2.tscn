@@ -12,10 +12,13 @@ tile_map_data = PackedByteArray("AAD0/wUAAAACAAAAAAD1/wUAAAACAAAAAAD1/wYAAAACAAA
 [node name="TM_FG" parent="." index="2"]
 visible = false
 
-[node name="Start" parent="." index="3"]
-position = Vector2(304, -133)
+[node name="PlayerStart" parent="." index="3"]
+position = Vector2(402, 98)
 
-[node name="End" parent="." index="4"]
+[node name="BallStart" parent="." index="4"]
+position = Vector2(322, 114)
+
+[node name="End" parent="." index="5"]
 position = Vector2(-508, -204)
 
 [node name="Wanted" type="Sprite2D" parent="." index="6"]

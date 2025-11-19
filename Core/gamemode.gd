@@ -5,6 +5,8 @@ class_name Gamemode
 ## --- VARIABLES & SIGNALS ----
 ## ============================
 
+var end_screen_scene: PackedScene = preload("res://UI/end_screen.tscn")
+	
 # Référence au joueur dans la scène
 var player: CharacterBody2D
 
@@ -60,26 +62,26 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 # Appelé lorsque le joueur ou la balle meurt
 func _on_level_manager_on_lose() -> void:
 	#Ne peut pas perdre s'il il a déjà gagner
-	if not has_player_won:
+	if has_player_won == false:
+		print("perdu")
 		$LoseSFX.play()
 		play_transition("Hide")
 		connect("transition_hide_finished", reset_level)
 
 
+func _on_level_manager_on_player_collect_star() -> void:
+	has_player_won= true
+
 # Appelé lorsque le joueur ou la balle termine le niveau
 func _on_level_manager_on_level_completed() -> void:
-	has_player_won = true
 	play_transition("Hide")
 	connect("transition_hide_finished", go_to_next_level)
 
 # Appelé lorsque le joueur termine le jeu
 func _on_level_manager_on_game_completed() -> void:
-	$WinSFX.play()
-
-# Appelé lorsque le son de fin se termine
-func _on_win_sfx_finished() -> void:
 	play_transition("Hide")
 	connect("transition_hide_finished", go_to_end)
+	
 
 
 ## ============================
@@ -89,7 +91,6 @@ func _on_win_sfx_finished() -> void:
 # Réinitialise le niveau après la transition
 func reset_level():
 	disconnect("transition_hide_finished", reset_level)
-	has_player_won = false
 	$LevelManager.restart_level()
 	play_transition("Show")
 
@@ -97,15 +98,19 @@ func reset_level():
 # Passe au niveau suivant après la transition
 func go_to_next_level():
 	disconnect("transition_hide_finished", go_to_next_level)
+	has_player_won = false
 	$LevelManager.next_level()
 	play_transition("Show")
 
 
 # Affiche l'écran de fin après la transition
 func go_to_end():
-	var end_screen_scene: PackedScene = preload("res://UI/end_screen.tscn")
+	disconnect("transition_hide_finished", go_to_end)
+	print("FINI")
 	var end_screen: Node = end_screen_scene.instantiate()
 	get_parent().add_child(end_screen)
 	$LevelManager.queue_free()
 	play_transition("Show")
+
+
 

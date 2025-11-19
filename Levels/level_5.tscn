@@ -8,10 +8,13 @@
 [node name="TM_Main" parent="." index="1"]
 tile_map_data = PackedByteArray("AAD5////AQAEAAAAAAD6////AQAFAAAAAAD7////AQAFAAAAAAD8////AQAFAAAAAAD9////AQAFAAAAAAD+////AQAFAAAAAAD/////AQAFAAAAAAAAAP//AQAFAAAAAAABAP//AQAFAAAAAAACAP//AQAFAAAAAAADAP//AQAFAAAAAAAEAP//AQAGAAAAAAD3/wEAAQAFAAAAAAD4/wEAAQAFAAAAAAD5/wEAAQAFAAAAAAD6/wEAAQAFAAAAAAD7/wEAAQAFAAAAAAD8/wEAAQAFAAAAAAD9/wEAAQAFAAAAAAD+/wEAAQAFAAAAAAD//wEAAQAFAAAAAAAAAAEAAQAFAAAAAAABAAEAAQAFAAAAAAACAAEAAQAFAAAAAAADAAEAAQAFAAAAAAAEAAEAAQAFAAAAAAAFAAEAAQAFAAAAAAAGAAEAAQAFAAAAAAA=")
 
-[node name="Start" parent="." index="3"]
-position = Vector2(-526, 5)
+[node name="PlayerStart" parent="." index="3"]
+position = Vector2(-173, -194)
 
-[node name="End" parent="." index="4"]
+[node name="BallStart" parent="." index="4"]
+position = Vector2(379, 39)
+
+[node name="End" parent="." index="5"]
 position = Vector2(-535, -170)
 
 [node name="Spikes" parent="." index="6" instance=ExtResource("2_ftuqy")]
