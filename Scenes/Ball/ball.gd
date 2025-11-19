@@ -25,6 +25,8 @@ func _ready() -> void:
 ## ============================
 
 func _physics_process(delta: float) -> void:
+	$StateManager.call_active_state_update(delta)
+	
 	# Si la balle tombe sous une certaine limite,
 	# on déclenche sa mort
 	if position.y > 380:
@@ -76,8 +78,5 @@ func die() -> void:
 	# 2) Jouer le son d’explosion/pop
 	#    (à la fin du son, la balle sera free dans _on_pop_sfx_finished)
 	$PopSFX.play()
-
-
-
-
-
+	
+	$Sprite2D.visible = false

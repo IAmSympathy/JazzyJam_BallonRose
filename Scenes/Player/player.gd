@@ -129,7 +129,7 @@ func grab_ball(ball: Ball) -> void:
 	# Gèle la balle et la déplace vers le joueur
 	ball.freeze_physics()
 	ball.reparent($BallHolder)
-	ball.get_state_manager().handle_state_transition("Held")
+	ball.get_state_manager().handle_state_transition(E_BallStates.held)
 
 	var grab_tween := create_tween()
 	grab_tween.tween_property(
@@ -147,7 +147,7 @@ func throw_ball(ball: Ball, strength: float):
 	ball.reparent(get_parent())
 
 	ball.global_position = $BallHolder.global_position
-	ball.get_state_manager().handle_state_transition("Free")
+	ball.get_state_manager().handle_state_transition(E_BallStates.free)
 	$ThrowCooldown.start()
 
 	# Direction du tir

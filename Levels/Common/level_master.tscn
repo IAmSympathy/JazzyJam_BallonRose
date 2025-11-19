@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://whdfqfbehvc5"]
+[gd_scene load_steps=16 format=3 uid="uid://whdfqfbehvc5"]
 
 [ext_resource type="Script" uid="uid://d3q7krnumntwu" path="res://Levels/Common/level_master.gd" id="1_l2i54"]
 [ext_resource type="Texture2D" uid="uid://w04d1s6erum1" path="res://Ressources/Environnment/Test/walls.png" id="2_w25xf"]
 [ext_resource type="Texture2D" uid="uid://cy6khr38mhfvw" path="res://Ressources/Environnment/Japan/tileset.png" id="3_t1k23"]
-[ext_resource type="PackedScene" path="res://Ressources/Stars/animated_blue_star.tscn" id="4_0i56b"]
+[ext_resource type="PackedScene" uid="uid://cv785vkdm7oie" path="res://Ressources/Stars/animated_blue_star.tscn" id="4_0i56b"]
 [ext_resource type="Texture2D" uid="uid://dv2sjvmm6rpqv" path="res://Ressources/Environnment/Japan/Background.png" id="4_xdwi4"]
 [ext_resource type="AudioStream" uid="uid://b4ep2aadfobdm" path="res://Ressources/Sons/Étoile_bleue.wav" id="6_rjx7m"]
 
@@ -8809,6 +8809,12 @@ colors = PackedColorArray(0.58571196, 0.94511014, 1.1551381e-06, 1, 0.5154291, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_w25xf"]
 gradient = SubResource("Gradient_l2i54")
 
+[sub_resource type="Gradient" id="Gradient_rjx7m"]
+colors = PackedColorArray(0.76323813, 0.39539036, 0.56296974, 1, 1, 0.49013108, 0.9869943, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nmudm"]
+gradient = SubResource("Gradient_rjx7m")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2i54"]
 size = Vector2(64, 64)
 
@@ -8827,11 +8833,18 @@ tile_set = SubResource("TileSet_yj0h4")
 [node name="TM_FG" type="TileMapLayer" parent="."]
 z_index = 100
 
-[node name="Start" type="Node2D" parent="."]
+[node name="PlayerStart" type="Node2D" parent="."]
 position = Vector2(-109, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Start"]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerStart"]
 texture = SubResource("GradientTexture2D_w25xf")
+
+[node name="BallStart" type="Node2D" parent="."]
+position = Vector2(-34, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="BallStart"]
+scale = Vector2(0.53340495, 0.53340495)
+texture = SubResource("GradientTexture2D_nmudm")
 
 [node name="End" type="Area2D" parent="."]
 position = Vector2(100, 0)
@@ -8853,5 +8866,5 @@ texture = ExtResource("4_xdwi4")
 [node name="CollectStarSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rjx7m")
 
-[connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
+[connection signal="body_entered" from="End" to="." method="_on_end_box_entered"]
 [connection signal="finished" from="CollectStarSFX" to="." method="_on_collect_star_sfx_finished"]

@@ -11,6 +11,9 @@ func enter():
 
 	# Lance l’animation d'attente
 	player.animation_player.play("playerIdle")
+	
+	if not player.is_on_floor():
+		state_manager.handle_state_transition(E_PlayerStates.fall)
 
 
 ## ============================

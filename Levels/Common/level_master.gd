@@ -1,19 +1,51 @@
 extends Node
 class_name LevelMaster
 
+## ============================
+## --- VARIABLES & SIGNALS ----
+## ============================
+
+# Nom du niveau (modifiable dans l'éditeur)
 @export var level_name: String = "Default Level Name"
-signal end_reached
-var star_collected:bool = false
+
+# Signal émis lorsque le joueur atteint la fin du niveau
+signal on_end_reached
+
+# Booléen indiquant si l'étoile a été collectée
+var is_star_collected: bool = false
+
+
+## ============================
+## ----------- READY ----------
+## ============================
 
 func _ready() -> void:
-	$Start.visible = false
+	# Cache la vue debug du node Start au lancement
+	$PlayerStart.visible = false
+	$BallStart.visible = false
 
-func _on_end_body_entered(body: Node2D) -> void:
-	
-	if not star_collected:
-		star_collected = true
+
+## ============================
+## ---- ÉVÉNEMENTS BODY -------
+## ============================
+
+# Appelé lorsque quelque chose entre en collision avec l'End
+func _on_end_box_entered(_body: Node2D) -> void:
+	if not is_star_collected:
+		is_star_collected = true
+
+		# Joue le son de collecte de l'étoile
 		$CollectStarSFX.play()
+
+		# Cache l'étoile
 		$End/AnimatedBlueStar.visible = false
 
+
+## ============================
+## ---- ÉVÉNEMENTS SFX -------
+## ============================
+
+# Appelé lorsque le son de collecte de l'étoile se termine
 func _on_collect_star_sfx_finished() -> void:
-	end_reached.emit()
+	# Dit au level manager que la fin à été atteinte
+	on_end_reached.emit()

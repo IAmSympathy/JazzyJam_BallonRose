@@ -4,14 +4,6 @@ class_name BallStateFree
 @export var base_velocity: Vector2 = Vector2(0, 500)
 
 ## ============================
-## ----------- READY ----------
-## ============================
-
-func _ready() -> void:
-	ball.linear_velocity = base_velocity
-
-
-## ============================
 ## ----------- ENTER ----------
 ## ============================
 
@@ -43,6 +35,7 @@ func handle_input(input: String, value: int, delta: float):
 # Appelé à chaque frame (souvent depuis _physics_process)
 func update(delta: float):
 	super.update(delta)
+	
 
 
 ## ============================
