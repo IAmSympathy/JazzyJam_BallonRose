@@ -2,8 +2,11 @@ extends RigidBody2D
 class_name Ball
 
 ## ============================
-## --------- SIGNALS ----------
+## --------- VARIABLES & SIGNALS ----------
 ## ============================
+
+#status de vie de la balle
+var is_dead: bool = false
 
 # Signal émis lorsque la balle "meurt"
 signal on_death
@@ -32,13 +35,6 @@ func _physics_process(delta: float) -> void:
 	if position.y > 380:
 		die()
 
-func freeze_physics() -> void:
-	gravity_scale = 0
-	linear_velocity = Vector2.ZERO
-	angular_velocity = 0
-	freeze = true
-
-
 ## ============================
 ## ----------- EVENTS ---------
 ## ============================
@@ -50,7 +46,7 @@ func _on_hitbox_body_entered(body: Node) -> void:
 func _on_body_hit(body: Node2D) -> void:
 	on_ball_hit.emit()
 	
-	if body is Saw:
+	if body is Saw and !is_dead:
 		die()
 
 
@@ -74,6 +70,7 @@ func get_state_manager() -> StateManager:
 func die() -> void:
 	# 1) Émission du signal de mort
 	on_death.emit()
+	is_dead = true
 
 	# 2) Jouer le son d’explosion/pop
 	#    (à la fin du son, la balle sera free dans _on_pop_sfx_finished)

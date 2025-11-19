@@ -24,6 +24,7 @@ max_contacts_reported = 3
 script = ExtResource("1_1rrwo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.0499978, 2.0499978)
 shape = SubResource("CircleShape2D_ni1na")
 
 [node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("active_state", "possessed_node", "states")]
@@ -45,15 +46,16 @@ state_manager = NodePath("../../StateManager")
 state_name = "Held"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_j33xc")
 
 [node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.1779382, 1.1779382)
 collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-scale = Vector2(1.8068755, 1.721373)
+scale = Vector2(1.9550537, 1.8625393)
 shape = SubResource("CircleShape2D_uw8co")
 
 [node name="PopSFX" type="AudioStreamPlayer2D" parent="."]

@@ -19,7 +19,8 @@ class_name Player
 var ballRef: Ball = null
 
 # Charge actuelle de tir
-var chargeStrength: float = 0.0
+var charge_strength: float = 0.0
+var arrow_x_scale_factor: float = 0.8
 
 # Gravité extraite des settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -38,7 +39,7 @@ func _ready() -> void:
 	$Hitbox.connect("body_entered", _on_hitbox_body_entered)
 
 	# Flèche de visée invisible au début
-	$Arrow.visible = false
+	$BallHolder/Arrow.visible = false
 
 	# Initialise et active le système de states
 	$StateManager.initiate()
@@ -87,7 +88,7 @@ func _handle_inputs(delta: float) -> void:
 	## --- Lancer de balle (charger) --- ##
 	if Input.is_action_pressed("Throw") and ballRef != null:
 		var dist := global_position.distance_to(get_global_mouse_position())
-		chargeStrength = clamp(
+		charge_strength = clamp(
 			remap(dist, 0, 200, minThrowStrength, maxThrowStrength),
 			minThrowStrength,
 			maxThrowStrength
@@ -96,8 +97,8 @@ func _handle_inputs(delta: float) -> void:
 
 	## --- Relâcher et lancer --- ##
 	if Input.is_action_just_released("Throw") and ballRef != null:
-		throw_ball(ballRef, chargeStrength)
-		$Arrow.visible = false
+		throw_ball(ballRef, charge_strength)
+		$BallHolder/Arrow.visible = false
 
 
 ## ============================
@@ -123,23 +124,11 @@ func _on_throw_cooldown_timeout() -> void:
 ## ============================
 
 func grab_ball(ball: Ball) -> void:
-	print("grab")
 	disable_ball_pickup()
 
-	# Gèle la balle et la déplace vers le joueur
-	ball.freeze_physics()
-	ball.reparent($BallHolder)
 	ball.get_state_manager().handle_state_transition(E_BallStates.held)
+	ball.reparent($BallHolder)
 
-	var grab_tween := create_tween()
-	grab_tween.tween_property(
-		ball,
-		"position",
-		Vector2.ZERO,
-		0.1
-	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
-	await grab_tween.finished
 
 
 func throw_ball(ball: Ball, strength: float):
@@ -156,9 +145,9 @@ func throw_ball(ball: Ball, strength: float):
 
 
 func update_throw_arrow():
-	$Arrow.visible = true
-	$Arrow.rotation = (get_global_mouse_position() - global_position).angle()
-	$Arrow.scale = Vector2(-chargeStrength / maxThrowStrength, 1)
+	$BallHolder/Arrow.visible = true
+	$BallHolder/Arrow.rotation = (get_global_mouse_position() - global_position).angle()
+	$BallHolder/Arrow.scale = Vector2(-charge_strength / maxThrowStrength * arrow_x_scale_factor, $BallHolder/Arrow.scale.y)
 
 
 ## ============================

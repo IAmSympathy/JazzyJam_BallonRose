@@ -59,13 +59,9 @@ func update_facing_direction() -> void:
 	if direction == 0:
 		return
 
-	# Flip du sprite (0.25 = scale d'origine)
-	player.get_node("Sprites").scale.x = 0.25 * sign(direction)
+	# Flip du sprite
+	player.get_node("Sprites").scale.x = abs(player.get_node("Sprites").scale.x) * sign(direction)
 
 	# Réoriente le BallHolder du bon côté
 	var holder := player.get_node("BallHolder")
 	holder.position.x = abs(holder.position.x) * sign(direction)
-
-	# Ajuste la position globale de l'Arrow pour suivre le holder
-	var arrow := player.get_node("Arrow")
-	arrow.global_position.x = holder.global_position.x

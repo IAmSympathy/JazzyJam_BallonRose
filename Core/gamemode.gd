@@ -71,11 +71,13 @@ func _on_level_manager_on_player_collect_star() -> void:
 
 # Appelé lorsque le joueur ou la balle termine le niveau
 func _on_level_manager_on_level_completed() -> void:
+	print("Niveau complété")
 	play_transition("Hide")
 	connect("transition_hide_finished", go_to_next_level)
 
 # Appelé lorsque le joueur termine le jeu
 func _on_level_manager_on_game_completed() -> void:
+	print("Jeu complété")
 	play_transition("Hide")
 	connect("transition_hide_finished", go_to_end)
 	

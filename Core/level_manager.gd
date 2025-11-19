@@ -23,7 +23,7 @@ var ball: RigidBody2D
 var gamemode : Gamemode
 
 # Index du niveau courant
-@export var curren_level_index: int = 0
+var curren_level_index: int = 0
 
 # Scenes préchargées pour instancier player et balle
 var player_scene: PackedScene = preload("res://Player/player.tscn")
@@ -76,13 +76,13 @@ func start_level(index: int):
 	$CanvasLayer/LevelName.text = current_level.level_name
 
 	# Spawn le joueur
-	player = player_scene.instantiate() as CharacterBody2D
+	player = player_scene.instantiate() as Player
 	add_child(player)
 	player.position = current_level.get_node("PlayerStart").position
 	player.connect("on_death", on_player_death)
 
 	# Spawn la balle
-	ball = ball_scene.instantiate() as RigidBody2D
+	ball = ball_scene.instantiate() as Ball
 	add_child(ball)
 	ball.position = current_level.get_node("BallStart").position
 	ball.connect("on_death", on_player_death)
@@ -101,6 +101,7 @@ func next_level():
 		ball.queue_free()
 	current_level.queue_free()
 	curren_level_index += 1
+	print(curren_level_index)
 	# Si il reste des niveaux, on démarre le suivant
 	if curren_level_index < level_list.size():
 		start_level(curren_level_index)

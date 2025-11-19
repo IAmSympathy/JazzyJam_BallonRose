@@ -39,7 +39,7 @@ func _on_end_box_entered(_body: Node2D) -> void:
 		$CollectStarSFX.play()
 
 		# Cache l'étoile
-		$End/AnimatedBlueStar.visible = false
+		$End/BlueStar.visible = false
 
 
 ## ============================

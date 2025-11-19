@@ -1,27 +1,56 @@
 extends BallStateMaster
-class_name  BallStateHeld
+class_name BallStateHeld
 
-#va chercher le root pour avoir accès aux propriétés de Rigidbody2D
+## ============================
+## ----------- ENTER ----------
+## ============================
 
-#Est appellé lorsqu'on entre dans le state
+# Appelé lorsque la balle entre dans l’état “Held”
+# (lorsqu’elle est tenue par le joueur)
 func enter():
 	super.enter()
-	#Doit etre mis comme child du joueur pour suivre ses déplacements, et desactiver la physique 
-	#ball.freeze = true
-	print("freese")
-	#state_manager.possessed_node.freeze = true
-
+	#Freeze la balle
+	ball.gravity_scale = 0
+	ball.linear_velocity = Vector2.ZERO
+	ball.angular_velocity = 0
+	ball.set_deferred("freeze", true)
 	
+	#Animation de déplacement vers le ball holder (position 0 vu que c'est son parent)
+	var grab_tween := create_tween()
+	grab_tween.tween_property(
+		ball,
+		"position",
+		Vector2.ZERO,
+		0.1
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-#Est appellé lorsqu'on sort du state
-func exit():
-	super.exit()
 
+## ============================
+## --------- INPUTS -----------
+## ============================
 
-#Est appellé lorsqu'un input est détecté
+# Appelé lorsqu’un input est détecté
+# Ici, cet état ne gère pas d’inputs directement
 func handle_input(input : String, value : int, delta: float):
-	super.handle_input(input,value, delta)
-	
-#Est appellé à chaque frame
+	super.handle_input(input, value, delta)
+
+
+
+## ============================
+## ---------- UPDATE ----------
+## ============================
+
+# Appelé à chaque frame
+# Sert généralement à suivre le joueur pendant qu’il tient la balle
 func update(delta: float):
 	super.update(delta)
+
+
+## ============================
+## ----------- EXIT -----------
+## ============================
+
+# Appelé lorsque la balle quitte cet état
+# (par exemple lorsqu’elle est relâchée)
+func exit():
+	super.exit()

@@ -1028,14 +1028,13 @@ size = Vector2(89.05887, 125.76757)
 radius = 141.05673
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 57
 script = ExtResource("1_xpcdj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, -8)
-scale = Vector2(3.6234865, 4.4005713)
+position = Vector2(11, -4)
+scale = Vector2(3.0259986, 3.0406098)
 shape = SubResource("CapsuleShape2D_7g0yx")
 
 [node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("active_state", "possessed_node", "states")]
@@ -1059,18 +1058,17 @@ state_manager = NodePath("../../StateManager")
 state_manager = NodePath("../../StateManager")
 
 [node name="BallHolder" type="Marker2D" parent="."]
-position = Vector2(0, -124)
+position = Vector2(17, -84)
 
-[node name="Arrow" type="Sprite2D" parent="."]
+[node name="Arrow" type="Sprite2D" parent="BallHolder"]
 modulate = Color(1, 1, 1, 0.32941177)
-position = Vector2(88, -122)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("14_7g0yx")
 
 [node name="Sprites" type="Node2D" parent="."]
 z_index = 10
 position = Vector2(0, -6)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.14984564, 0.15176025)
 
 [node name="brasGauche" type="Sprite2D" parent="Sprites"]
 position = Vector2(159.10716, -116.19617)
@@ -1118,6 +1116,8 @@ autoplay = "playerIdle"
 speed_scale = 2.0
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 7.000001)
+scale = Vector2(0.8326054, 0.8181225)
 collision_layer = 0
 collision_mask = 32
 
