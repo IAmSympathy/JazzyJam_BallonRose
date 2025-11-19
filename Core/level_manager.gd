@@ -51,14 +51,14 @@ func _ready() -> void:
 
 # Callback lorsque le joueur atteint la fin du niveau
 func on_level_end_reached() -> void:
-	if current_level.is_connected("on_end_reached", on_level_end_reached):
-		current_level.disconnect("on_end_reached", on_level_end_reached)
+	current_level.disconnect("on_end_reached", on_level_end_reached)
 	on_level_completed.emit()
 
 
 # Callback lorsque le joueur meurt
 func on_player_death():
 	on_lose.emit()
+	
 	
 
 ## ============================
