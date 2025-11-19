@@ -70,7 +70,7 @@ script = ExtResource("1_h8j6w")
 
 [node name="LevelManager" parent="." instance=ExtResource("1_l7bdk")]
 z_index = -10
-position = Vector2(-3, 0)
+position = Vector2(25, -20)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

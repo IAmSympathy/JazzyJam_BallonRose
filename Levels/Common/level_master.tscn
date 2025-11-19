@@ -1124,8 +1124,8 @@ shape = SubResource("RectangleShape2D_l2i54")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1000
-position = Vector2(-22.999998, -70)
-scale = Vector2(0.2, 0.2)
+position = Vector2(1.891, -32.678)
+scale = Vector2(0.256, 0.246)
 texture = ExtResource("4_xdwi4")
 
 [node name="CollectStarSFX" type="AudioStreamPlayer2D" parent="."]
